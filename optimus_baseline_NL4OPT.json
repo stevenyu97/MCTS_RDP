@@ -1,0 +1,1002 @@
+[
+    {
+        "problem_index": 1,
+        "avg_score": -1.0,
+        "std_score": 0.0,
+        "success_rate": 0.0,
+        "avg_tokens": 44525.0,
+        "avg_time": 520.3333885669708,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 2,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 41433.0,
+        "avg_time": 633.4991221427917,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 3,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 32751.0,
+        "avg_time": 406.19668459892273,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 4,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 38522.0,
+        "avg_time": 383.13275957107544,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 5,
+        "avg_score": -1.0,
+        "std_score": 0.0,
+        "success_rate": 0.0,
+        "avg_tokens": 41644.0,
+        "avg_time": 432.26308965682983,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 6,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 29751.0,
+        "avg_time": 304.582204580307,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 7,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 50268.0,
+        "avg_time": 492.5216341018677,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 8,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 37947.0,
+        "avg_time": 303.32478642463684,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 9,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 36730.0,
+        "avg_time": 315.51086354255676,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 10,
+        "avg_score": 3.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 49328.0,
+        "avg_time": 555.6361861228943,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 11,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 30238.0,
+        "avg_time": 358.01922130584717,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 12,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 25256.0,
+        "avg_time": 246.54778385162354,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 13,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 26865.0,
+        "avg_time": 257.7639305591583,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 14,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 37244.0,
+        "avg_time": 489.95817255973816,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 15,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 35770.0,
+        "avg_time": 441.0738945007324,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 16,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 27025.0,
+        "avg_time": 274.7555899620056,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 17,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 31527.0,
+        "avg_time": 352.74102902412415,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 18,
+        "avg_score": -1.0,
+        "std_score": 0.0,
+        "success_rate": 0.0,
+        "avg_tokens": 29850.0,
+        "avg_time": 336.88745760917664,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 19,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 29886.0,
+        "avg_time": 330.6028685569763,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 20,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 30937.0,
+        "avg_time": 357.0778419971466,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 21,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 24404.0,
+        "avg_time": 292.871062040329,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 22,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 36471.0,
+        "avg_time": 397.95215797424316,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 23,
+        "avg_score": -1.0,
+        "std_score": 0.0,
+        "success_rate": 0.0,
+        "avg_tokens": 30921.0,
+        "avg_time": 354.200585603714,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 24,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 35053.0,
+        "avg_time": 388.28437185287476,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 25,
+        "avg_score": -1.0,
+        "std_score": 0.0,
+        "success_rate": 0.0,
+        "avg_tokens": 27784.0,
+        "avg_time": 346.172402381897,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 26,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 26100.0,
+        "avg_time": 238.99072265625,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 27,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 32289.0,
+        "avg_time": 328.80739307403564,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 28,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 25500.0,
+        "avg_time": 278.86385107040405,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 29,
+        "avg_score": -1.0,
+        "std_score": 0.0,
+        "success_rate": 0.0,
+        "avg_tokens": 19365.0,
+        "avg_time": 0.0,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 30,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 36564.0,
+        "avg_time": 408.60800766944885,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 31,
+        "avg_score": -1.0,
+        "std_score": 0.0,
+        "success_rate": 0.0,
+        "avg_tokens": 20956.0,
+        "avg_time": 209.378399848938,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 32,
+        "avg_score": 6.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19212.0,
+        "avg_time": 199.594420671463,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 33,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 26759.0,
+        "avg_time": 295.0873420238495,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 34,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 29040.0,
+        "avg_time": 355.95170736312866,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 35,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 22256.0,
+        "avg_time": 298.4995436668396,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 36,
+        "avg_score": 7.6,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 30320.0,
+        "avg_time": 343.08725142478943,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 37,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 25283.0,
+        "avg_time": 319.2027909755707,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 38,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 36737.0,
+        "avg_time": 401.1235635280609,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 39,
+        "avg_score": 3.8,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 40305.0,
+        "avg_time": 434.11289739608765,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 40,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 31930.0,
+        "avg_time": 313.7477056980133,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 41,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 37908.0,
+        "avg_time": 427.8583130836487,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 42,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 25724.0,
+        "avg_time": 251.51503705978394,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 43,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 25143.0,
+        "avg_time": 294.13836884498596,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 44,
+        "avg_score": -1.0,
+        "std_score": 0.0,
+        "success_rate": 0.0,
+        "avg_tokens": 35898.0,
+        "avg_time": 398.7961754798889,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 45,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 26778.0,
+        "avg_time": 246.94979667663574,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 46,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 30327.0,
+        "avg_time": 313.61684560775757,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 47,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 34230.0,
+        "avg_time": 321.4117317199707,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 48,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 30878.0,
+        "avg_time": 347.2980582714081,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 49,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 24557.0,
+        "avg_time": 271.229856967926,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 50,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 23381.0,
+        "avg_time": 294.1006519794464,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 51,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 32732.0,
+        "avg_time": 336.18197870254517,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 52,
+        "avg_score": -1.0,
+        "std_score": 0.0,
+        "success_rate": 0.0,
+        "avg_tokens": 38440.0,
+        "avg_time": 399.6676301956177,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 53,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 33167.0,
+        "avg_time": 460.6387531757355,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 54,
+        "avg_score": -1.0,
+        "std_score": 0.0,
+        "success_rate": 0.0,
+        "avg_tokens": 34659.0,
+        "avg_time": 464.0090959072113,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 55,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 31066.0,
+        "avg_time": 456.79370164871216,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 56,
+        "avg_score": -1.0,
+        "std_score": 0.0,
+        "success_rate": 0.0,
+        "avg_tokens": 13214.0,
+        "avg_time": 0.0,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 57,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 32741.0,
+        "avg_time": 446.4203600883484,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 58,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 28799.0,
+        "avg_time": 360.60436606407166,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 59,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 41740.0,
+        "avg_time": 673.0841693878174,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 60,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 39926.0,
+        "avg_time": 525.8540751934052,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 61,
+        "avg_score": 6.5,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 36094.0,
+        "avg_time": 537.3752932548523,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 62,
+        "avg_score": -1.0,
+        "std_score": 0.0,
+        "success_rate": 0.0,
+        "avg_tokens": 32928.0,
+        "avg_time": 409.8614807128906,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 63,
+        "avg_score": 8.6,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 32638.0,
+        "avg_time": 356.55816888809204,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 64,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 33424.0,
+        "avg_time": 329.64224672317505,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 65,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 39729.0,
+        "avg_time": 498.80521035194397,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 66,
+        "avg_score": 3.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 32012.0,
+        "avg_time": 417.70563864707947,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 67,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 31744.0,
+        "avg_time": 406.3345036506653,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 68,
+        "avg_score": -1.0,
+        "std_score": 0.0,
+        "success_rate": 0.0,
+        "avg_tokens": 18078.0,
+        "avg_time": 0.0,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 69,
+        "avg_score": -1.0,
+        "std_score": 0.0,
+        "success_rate": 0.0,
+        "avg_tokens": 28510.0,
+        "avg_time": 350.651743888855,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 70,
+        "avg_score": -1.0,
+        "std_score": 0.0,
+        "success_rate": 0.0,
+        "avg_tokens": 43483.0,
+        "avg_time": 503.89771604537964,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 71,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 31355.0,
+        "avg_time": 341.61257457733154,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 72,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 51111.0,
+        "avg_time": 729.2824239730835,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 73,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 39817.0,
+        "avg_time": 647.415144443512,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 74,
+        "avg_score": -1.0,
+        "std_score": 0.0,
+        "success_rate": 0.0,
+        "avg_tokens": 39957.0,
+        "avg_time": 330.9555549621582,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 75,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 36751.0,
+        "avg_time": 209.20501470565796,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 76,
+        "avg_score": -1.0,
+        "std_score": 0.0,
+        "success_rate": 0.0,
+        "avg_tokens": 22375.0,
+        "avg_time": 154.888188123703,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 77,
+        "avg_score": 5.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 32816.0,
+        "avg_time": 249.98950147628784,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 78,
+        "avg_score": 6.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 32400.0,
+        "avg_time": 251.2323215007782,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 79,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 26840.0,
+        "avg_time": 217.44683694839478,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 80,
+        "avg_score": 0.8,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 43968.0,
+        "avg_time": 473.6113805770874,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 81,
+        "avg_score": -1.0,
+        "std_score": 0.0,
+        "success_rate": 0.0,
+        "avg_tokens": 23971.0,
+        "avg_time": 229.465900182724,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 82,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 31453.0,
+        "avg_time": 252.324059009552,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 83,
+        "avg_score": 8.2,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 36587.0,
+        "avg_time": 347.8811960220337,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 84,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 25249.0,
+        "avg_time": 244.55828094482422,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 85,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 32929.0,
+        "avg_time": 323.62371921539307,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 86,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 48449.0,
+        "avg_time": 466.945259809494,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 87,
+        "avg_score": 7.5,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 46980.0,
+        "avg_time": 440.4867169857025,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 88,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 22801.0,
+        "avg_time": 207.49559903144836,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 89,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 23038.0,
+        "avg_time": 235.63916397094727,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 90,
+        "avg_score": -1.0,
+        "std_score": 0.0,
+        "success_rate": 0.0,
+        "avg_tokens": 33265.0,
+        "avg_time": 352.41476249694824,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 91,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20803.0,
+        "avg_time": 238.0385115146637,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 92,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 31569.0,
+        "avg_time": 348.08695578575134,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 93,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 28537.0,
+        "avg_time": 327.16013979911804,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 94,
+        "avg_score": 8.5,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 28782.0,
+        "avg_time": 312.6484658718109,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 95,
+        "avg_score": -1.0,
+        "std_score": 0.0,
+        "success_rate": 0.0,
+        "avg_tokens": 33565.0,
+        "avg_time": 439.11953806877136,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 96,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 29580.0,
+        "avg_time": 295.1973955631256,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 97,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 31906.0,
+        "avg_time": 334.0517649650574,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 98,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 29152.0,
+        "avg_time": 271.6256296634674,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 99,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 31181.0,
+        "avg_time": 352.6414473056793,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 100,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 31132.0,
+        "avg_time": 348.59188079833984,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    }
+]

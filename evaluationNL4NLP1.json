@@ -1,0 +1,2180 @@
+[
+    {
+        "problem_index": 1,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 14677.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 2,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 25654.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 3,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 16964.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 4,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17964.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 5,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18661.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 6,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 16346.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 7,
+        "avg_score": 7.5,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 16913.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 8,
+        "avg_score": 9.4,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19401.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 9,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19890.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 10,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21954.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 11,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18255.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 12,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18811.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 13,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 16900.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 14,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17464.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 15,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21448.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 16,
+        "avg_score": 2.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 23367.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 17,
+        "avg_score": 7.5,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 16744.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 18,
+        "avg_score": 4.5,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19335.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 19,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19129.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 20,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17942.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 21,
+        "avg_score": 8.5,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 23298.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 22,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20611.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 23,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19304.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 24,
+        "avg_score": 7.5,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20221.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 25,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21945.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 26,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 23197.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 27,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17125.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 28,
+        "avg_score": 6.5,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19570.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 29,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20384.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 30,
+        "avg_score": 9.6,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19967.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 31,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17883.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 32,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18810.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 33,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20397.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 34,
+        "avg_score": 6.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18899.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 35,
+        "avg_score": 8.5,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21874.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 36,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18883.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 37,
+        "avg_score": 9.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 35253.0,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 38,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17594.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 39,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19862.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 40,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18503.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 41,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19800.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 42,
+        "avg_score": 8.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 24784.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 43,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 15593.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 44,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21632.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 45,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20222.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 46,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21204.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 47,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17206.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 48,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21782.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 49,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 14171.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 50,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20943.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 51,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17094.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 52,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18192.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 53,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 15356.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 54,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18116.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 55,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 22465.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 56,
+        "avg_score": 9.2,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21245.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 57,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21763.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 58,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18699.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 59,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 22583.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 60,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20940.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 61,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 15978.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 62,
+        "avg_score": 9.5,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18207.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 63,
+        "avg_score": 9.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17226.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 64,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 23401.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 65,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19673.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 66,
+        "avg_score": 2.5,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19017.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 67,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21808.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 68,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 22832.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 69,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21656.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 70,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 23574.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 71,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17415.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 72,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 16696.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 73,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 25118.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 74,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17761.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 75,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 15910.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 76,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 16534.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 77,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 26793.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 78,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17032.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 79,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18114.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 80,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18629.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 81,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 16655.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 82,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21555.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 83,
+        "avg_score": 9.2,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20316.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 84,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19018.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 85,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18963.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 86,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19680.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 87,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 16270.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 88,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19575.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 89,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17141.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 90,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18454.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 91,
+        "avg_score": 9.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20509.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 92,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19236.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 93,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19365.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 94,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 26662.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 95,
+        "avg_score": 8.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19027.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 96,
+        "avg_score": 9.3,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17695.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 97,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 16929.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 98,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18491.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 99,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 16428.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 100,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20515.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 101,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19114.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 102,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17175.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 103,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20559.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 104,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19921.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 105,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19467.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 106,
+        "avg_score": 9.4,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17660.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 107,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 15410.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 108,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19050.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 109,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18449.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 110,
+        "avg_score": 4.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 31306.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 111,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21052.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 112,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 22975.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 113,
+        "avg_score": 9.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 22934.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 114,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17529.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 115,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21699.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 116,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17556.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 117,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18649.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 118,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 16966.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 119,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17156.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 120,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 22617.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 121,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18887.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 122,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 22822.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 123,
+        "avg_score": 7.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 23269.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 124,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 25980.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 125,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19325.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 126,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 15428.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 127,
+        "avg_score": 8.5,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 24283.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 128,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21098.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 129,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17640.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 130,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19074.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 131,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20291.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 132,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20851.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 133,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18215.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 134,
+        "avg_score": 6.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20001.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 135,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 24237.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 136,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18940.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 137,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 16489.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 138,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 22346.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 139,
+        "avg_score": 6.5,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21301.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 140,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 16761.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 141,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18044.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 142,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19335.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 143,
+        "avg_score": 9.7,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18837.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 144,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19630.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 145,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17004.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 146,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20865.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 147,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18887.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 148,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17738.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 149,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18266.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 150,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 16627.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 151,
+        "avg_score": 6.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21397.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 152,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 24205.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 153,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 26151.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 154,
+        "avg_score": 8.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 16184.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 155,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21063.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 156,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21597.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 157,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18693.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 158,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 27968.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 159,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 22315.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 160,
+        "avg_score": 9.5,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20707.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 161,
+        "avg_score": 9.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19630.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 162,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18020.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 163,
+        "avg_score": 7.7,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20213.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 164,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20527.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 165,
+        "avg_score": 9.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18462.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 166,
+        "avg_score": 7.8,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 22042.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 167,
+        "avg_score": 9.2,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19696.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 168,
+        "avg_score": 9.7,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20478.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 169,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19339.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 170,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17814.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 171,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21001.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 172,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20263.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 173,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 22876.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 174,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18623.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 175,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18979.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 176,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 23189.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 177,
+        "avg_score": 8.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17895.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 178,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18125.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 179,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 24240.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 180,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17412.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 181,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 24376.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 182,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18980.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 183,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18652.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 184,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18920.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 185,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 22401.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 186,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 25068.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 187,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 23523.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 188,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20524.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 189,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20133.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 190,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18619.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 191,
+        "avg_score": 9.2,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 23407.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 192,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 15464.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 193,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19082.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 194,
+        "avg_score": 9.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19879.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 195,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21992.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 196,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19257.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 197,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19718.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 198,
+        "avg_score": 9.2,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 16768.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 199,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17535.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 200,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 16552.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 201,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 22661.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 202,
+        "avg_score": 3.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 22781.0,
+        "constraint_satisfaction_rate": 0.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 203,
+        "avg_score": 9.5,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 22514.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 204,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18856.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 205,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18108.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 206,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 16251.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 207,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18630.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 208,
+        "avg_score": 8.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18232.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 209,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18727.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 210,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17710.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 211,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 25927.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 212,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21064.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 213,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 25524.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 214,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 16429.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 215,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19389.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 216,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19731.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 217,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20812.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 218,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19740.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 219,
+        "avg_score": 9.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 25623.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 220,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20111.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 221,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18154.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 222,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17165.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 223,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 22979.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 224,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21280.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 225,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 17088.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 226,
+        "avg_score": 8.3,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 20383.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 227,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 26126.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 228,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19268.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 229,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18903.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 230,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18326.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 231,
+        "avg_score": 8.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 23679.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 232,
+        "avg_score": 8.5,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 22285.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 233,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 22396.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 234,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 23583.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 235,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 19119.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 236,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18411.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 237,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 16061.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 238,
+        "avg_score": 6.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21432.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 239,
+        "avg_score": 8.8,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 21934.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 240,
+        "avg_score": 8.2,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 22496.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 0.0
+    },
+    {
+        "problem_index": 241,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 27222.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    },
+    {
+        "problem_index": 242,
+        "avg_score": 10.0,
+        "std_score": 0.0,
+        "success_rate": 1.0,
+        "avg_tokens": 18981.0,
+        "constraint_satisfaction_rate": 1.0,
+        "ground_truth_match_rate": 1.0
+    }
+]
