@@ -57,7 +57,6 @@ These files contain all 242 NLP4LP instances. They are retained as complete arch
 | Table 5 problem indices | `revision_experiments/traces/random100_problem_indices.json` | Seed-42 sample |
 | Table 4 evaluator reliability | `revision_experiments/traces/evaluator_reliability.json`, `evaluator_ranking_stability.json`, `trace_corpus.jsonl` | 30 fixed traces × 5 GPT-5 grades |
 | Aggregation output | `revision_experiments/traces/aggregated_summary.json` | From `aggregate_results.py` |
-| 30-problem equal-budget pilot | `revision_experiments/traces/equal_budget_results.json` | One-shot and full MCTS-RDP only; not Table 5 |
 
 Table 5 does **not** include CoT, Self-Refine, or OPTIMUS traces.
 
