@@ -1,6 +1,26 @@
+# Core solvers and numerics (used by MCTS-RDP, baselines, and generated code)
 numpy>=1.24
-openai>=1.0
+scipy>=1.11
+pandas>=2.0
 ortools>=9.8
 cvxpy>=1.4
 pulp>=2.7
 pyomo>=6.7
+# Optimus generates/imports Gurobi models. The wheel installs without a license;
+# solving still needs a local Gurobi license.
+gurobipy>=11.0
+
+# LLM clients
+openai>=1.0
+google-generativeai>=0.8
+groq>=0.9
+
+# Optimus RAG notebooks / query_vector_db
+python-dotenv>=1.0
+langchain>=0.2
+langchain-chroma>=0.1
+langchain-openai>=0.1
+
+# Utilities
+matplotlib>=3.8
+tqdm>=4.66
