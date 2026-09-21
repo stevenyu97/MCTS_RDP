@@ -1,0 +1,8 @@
+{
+  "total_traces": 30,
+  "by_stratum": {
+    "optimal": 15,
+    "suboptimal": 15
+  },
+  "output": "revision2/trace_corpus.jsonl"
+}

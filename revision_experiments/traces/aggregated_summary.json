@@ -1,0 +1,312 @@
+{
+  "aggregation": "best",
+  "datasets": {
+    "NLP4LP_MCTS": {
+      "path": "/home/ubuntu/LLM_Planning/evaluationMCTS_results.json",
+      "protocol": {
+        "block_size": 24,
+        "search_per_block": 3,
+        "total_problems": 242,
+        "num_blocks": 11,
+        "search_by_index": 32,
+        "apply_by_index": 210,
+        "search_fraction_by_index": 0.1322314049586777,
+        "search_by_condition_field": 32,
+        "apply_by_condition_field": 210
+      },
+      "overall": {
+        "n": 242,
+        "success_rate_pct": 100.0,
+        "reward_mean": 9.473140495867769,
+        "reward_sd": 1.3691858034654651,
+        "constraint_pct": 97.52066115702479,
+        "optimality_pct": 78.09917355371901,
+        "tokens_mean": 7158.140495867769,
+        "time_mean": 70.07984146500422
+      },
+      "search_only": {
+        "n": 32,
+        "success_rate_pct": 100.0,
+        "reward_mean": 9.453125,
+        "reward_sd": 1.3816736870257589,
+        "constraint_pct": 100.0,
+        "optimality_pct": 81.25,
+        "tokens_mean": 20423.40625,
+        "time_mean": 222.219901971519
+      },
+      "apply_only": {
+        "n": 210,
+        "success_rate_pct": 100.0,
+        "reward_mean": 9.476190476190476,
+        "reward_sd": 1.3705741338461752,
+        "constraint_pct": 97.14285714285714,
+        "optimality_pct": 77.61904761904762,
+        "tokens_mean": 5136.766666666666,
+        "time_mean": 46.89659414972578
+      }
+    },
+    "NL4OPT_MCTS": {
+      "path": "/home/ubuntu/LLM_Planning/evaluationMCTS_results_aq.json",
+      "protocol": {
+        "block_size": 24,
+        "search_per_block": 3,
+        "total_problems": 242,
+        "num_blocks": 11,
+        "search_by_index": 32,
+        "apply_by_index": 210,
+        "search_fraction_by_index": 0.1322314049586777,
+        "search_by_condition_field": 0,
+        "apply_by_condition_field": 0
+      },
+      "overall": {
+        "n": 242,
+        "success_rate_pct": 100.0,
+        "reward_mean": 9.540909090909091,
+        "reward_sd": 1.2305667823442694,
+        "constraint_pct": 99.17355371900827,
+        "optimality_pct": 80.57851239669421,
+        "tokens_mean": 19986.80578512397,
+        "time_mean": 0.0
+      },
+      "search_only": {
+        "n": 0
+      },
+      "apply_only": {
+        "n": 0
+      }
+    },
+    "NLP4LP_MCTS_Gemini": {
+      "path": "/home/ubuntu/LLM_Planning/gemini/evaluationMCTS_results_gem.json",
+      "protocol": {
+        "block_size": 24,
+        "search_per_block": 3,
+        "total_problems": 242,
+        "num_blocks": 11,
+        "search_by_index": 32,
+        "apply_by_index": 210,
+        "search_fraction_by_index": 0.1322314049586777,
+        "search_by_condition_field": 22,
+        "apply_by_condition_field": 220
+      },
+      "overall": {
+        "n": 242,
+        "success_rate_pct": 100.0,
+        "reward_mean": 9.514462809917354,
+        "reward_sd": 1.5957664168409431,
+        "constraint_pct": 97.52066115702479,
+        "optimality_pct": 76.44628099173553,
+        "tokens_mean": 6940.322314049587,
+        "time_mean": 38.278776431543434
+      },
+      "search_only": {
+        "n": 22,
+        "success_rate_pct": 100.0,
+        "reward_mean": 9.409090909090908,
+        "reward_sd": 1.9188064472004938,
+        "constraint_pct": 100.0,
+        "optimality_pct": 86.36363636363636,
+        "tokens_mean": 22874.68181818182,
+        "time_mean": 152.2794889825763
+      },
+      "apply_only": {
+        "n": 220,
+        "success_rate_pct": 100.0,
+        "reward_mean": 9.525,
+        "reward_sd": 1.5646093068574731,
+        "constraint_pct": 97.27272727272727,
+        "optimality_pct": 75.45454545454545,
+        "tokens_mean": 5346.886363636364,
+        "time_mean": 26.878705176440153
+      }
+    },
+    "NL4OPT_MCTS_Gemini": {
+      "path": "/home/ubuntu/LLM_Planning/gemini/evaluationMCTS_results_aq_gem.json",
+      "protocol": {
+        "block_size": 24,
+        "search_per_block": 3,
+        "total_problems": 1,
+        "num_blocks": 1,
+        "search_by_index": 1,
+        "apply_by_index": 0,
+        "search_fraction_by_index": 1.0,
+        "search_by_condition_field": 0,
+        "apply_by_condition_field": 0
+      },
+      "overall": {
+        "n": 1,
+        "success_rate_pct": 100.0,
+        "reward_mean": 10.0,
+        "reward_sd": 0.0,
+        "constraint_pct": 100.0,
+        "optimality_pct": 100.0,
+        "tokens_mean": 19592.0,
+        "time_mean": 0.0
+      },
+      "search_only": {
+        "n": 0
+      },
+      "apply_only": {
+        "n": 0
+      }
+    },
+    "Baseline_NLP4LP": {
+      "path": "/home/ubuntu/LLM_Planning/evaluation_results.json",
+      "protocol": {
+        "block_size": 24,
+        "search_per_block": 3,
+        "total_problems": 100,
+        "num_blocks": 5,
+        "search_by_index": 15,
+        "apply_by_index": 85,
+        "search_fraction_by_index": 0.15,
+        "search_by_condition_field": 0,
+        "apply_by_condition_field": 0
+      },
+      "overall": {
+        "n": 100,
+        "success_rate_pct": 99.0,
+        "reward_mean": 9.273,
+        "reward_sd": 1.9290891240388166,
+        "constraint_pct": 93.0,
+        "optimality_pct": 83.0,
+        "tokens_mean": 3960.62,
+        "time_mean": 0.0
+      },
+      "search_only": {
+        "n": 0
+      },
+      "apply_only": {
+        "n": 0
+      }
+    },
+    "Baseline_NL4OPT": {
+      "path": "/home/ubuntu/LLM_Planning/baseline_aq.json",
+      "protocol": {
+        "block_size": 24,
+        "search_per_block": 3,
+        "total_problems": 100,
+        "num_blocks": 5,
+        "search_by_index": 15,
+        "apply_by_index": 85,
+        "search_fraction_by_index": 0.15,
+        "search_by_condition_field": 0,
+        "apply_by_condition_field": 0
+      },
+      "overall": {
+        "n": 100,
+        "success_rate_pct": 98.0,
+        "reward_mean": 8.98,
+        "reward_sd": 2.18377858055456,
+        "constraint_pct": 93.0,
+        "optimality_pct": 73.0,
+        "tokens_mean": 5438.77,
+        "time_mean": 76.93166043281555
+      },
+      "search_only": {
+        "n": 0
+      },
+      "apply_only": {
+        "n": 0
+      }
+    },
+    "CoT_NLP4LP": {
+      "path": "/home/ubuntu/LLM_Planning/cot_results.json",
+      "protocol": {
+        "block_size": 24,
+        "search_per_block": 3,
+        "total_problems": 242,
+        "num_blocks": 11,
+        "search_by_index": 32,
+        "apply_by_index": 210,
+        "search_fraction_by_index": 0.1322314049586777,
+        "search_by_condition_field": 0,
+        "apply_by_condition_field": 0
+      },
+      "overall": {
+        "n": 242,
+        "success_rate_pct": 88.84297520661157,
+        "reward_mean": 7.0380165289256205,
+        "reward_sd": 4.0634645030270065,
+        "constraint_pct": 82.64462809917356,
+        "optimality_pct": 54.13223140495868,
+        "tokens_mean": 17351.334710743802,
+        "time_mean": 265.1190545430853
+      },
+      "search_only": {
+        "n": 0
+      },
+      "apply_only": {
+        "n": 0
+      }
+    },
+    "Ablation_no_MCTS": {
+      "path": "/home/ubuntu/LLM_Planning/ablation_no_mcts_results.json",
+      "protocol": {
+        "block_size": 24,
+        "search_per_block": 3,
+        "total_problems": 242,
+        "num_blocks": 11,
+        "search_by_index": 32,
+        "apply_by_index": 210,
+        "search_fraction_by_index": 0.1322314049586777,
+        "search_by_condition_field": 0,
+        "apply_by_condition_field": 0
+      },
+      "overall": {
+        "n": 242,
+        "success_rate_pct": 99.58677685950413,
+        "reward_mean": 8.277685950413224,
+        "reward_sd": 2.7315275498766987,
+        "constraint_pct": 95.45454545454545,
+        "optimality_pct": 60.743801652892564,
+        "tokens_mean": 20359.210743801654,
+        "time_mean": 297.98480448939586
+      },
+      "search_only": {
+        "n": 0
+      },
+      "apply_only": {
+        "n": 0
+      }
+    },
+    "Wireless_MCTS": {
+      "path": "/home/ubuntu/LLM_Planning/evaluationMCTS_results_aq.json",
+      "protocol": {
+        "block_size": 24,
+        "search_per_block": 3,
+        "total_problems": 242,
+        "num_blocks": 11,
+        "search_by_index": 32,
+        "apply_by_index": 210,
+        "search_fraction_by_index": 0.1322314049586777,
+        "search_by_condition_field": 0,
+        "apply_by_condition_field": 0
+      },
+      "overall": {
+        "n": 242,
+        "success_rate_pct": 100.0,
+        "reward_mean": 9.540909090909091,
+        "reward_sd": 1.2305667823442694,
+        "constraint_pct": 99.17355371900827,
+        "optimality_pct": 80.57851239669421,
+        "tokens_mean": 19986.80578512397,
+        "time_mean": 0.0
+      },
+      "search_only": {
+        "n": 0
+      },
+      "apply_only": {
+        "n": 0
+      }
+    }
+  },
+  "reconciliation": [
+    "  Table2 GPT-5 optimality: paper=83.10% computed=78.10% (\u0394=5.00)",
+    "  Table2 GPT-5 tokens: paper=6657 computed=7158.14 (\u0394=501.14)",
+    "  Table1 GPT-5 sd: paper=1.41 computed=1.23 (\u0394=-0.18)",
+    "  Table1 GPT-5 constraint: paper=100.00% computed=99.17% (\u0394=0.83)",
+    "  Table1 GPT-5 optimality: paper=92.00% computed=80.58% (\u0394=11.42)",
+    "  Table1 GPT-5 tokens: paper=7517 computed=19986.81 (\u0394=12469.81)",
+    "  Table1 GPT-5 time: paper=100.26 computed=0.00 (\u0394=-100.26)"
+  ]
+}

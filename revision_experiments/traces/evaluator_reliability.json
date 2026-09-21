@@ -1,0 +1,3301 @@
+{
+  "aggregate": {
+    "num_traces": 30,
+    "repeats_per_trace": 5,
+    "mean_score_sd_across_traces": 0.2675076946453556,
+    "mean_score_range_across_traces": 0.6900000000000001,
+    "mean_absolute_score_variation": 0.6900000000000001,
+    "mean_executed_agreement": 1.0,
+    "mean_constraint_agreement": 0.9933333333333334,
+    "mean_gt_agreement": 1.0,
+    "llm_vs_det_executed_agreement": 1.0,
+    "llm_vs_det_constraint_agreement": 1.0,
+    "llm_vs_det_gt_agreement": 0.8333333333333334,
+    "by_stratum": {
+      "optimal": {
+        "count": 15,
+        "mean_sd_score": 0.0,
+        "mean_score_range": 0.0,
+        "llm_vs_det_gt_agreement": 1.0
+      },
+      "suboptimal": {
+        "count": 15,
+        "mean_sd_score": 0.5350153892907112,
+        "mean_score_range": 1.3800000000000001,
+        "llm_vs_det_gt_agreement": 0.6666666666666666
+      }
+    }
+  },
+  "per_trace": [
+    {
+      "trace": {
+        "trace_id": "nlp4lp_004",
+        "problem_index": 4,
+        "problem_description": "A sailor can eat either a crab cakes or a lobster roll for his meals. He needs to ensure he gets at least 80 units of vitamin A and 100 units of vitamin C. Each crab cake contains 5 units of vitamin A and 7 units of vitamin C. Each lobster roll contains 8 units of vitamin A and 4 units of vitamin C. In addition, since lobster is more expensive, at most 40% of his meals should be lobster rolls. If each crab cake contains 4 units of unsaturated fat and each lobster roll contains 6 units of unsaturated fat, how many of each should he eat to minimize his unsaturated fat intake?",
+        "ground_truth": "63.33333333333333",
+        "code": "import sys\n\ntry:\n    import pulp as pl\nexcept ImportError:\n    import subprocess\n    subprocess.check_call([sys.executable, \"-m\", \"pip\", \"install\", \"pulp\", \"--quiet\"])\n    import pulp as pl\n\nprob = pl.LpProblem(\"Minimize_Unsaturated_Fat\", pl.LpMinimize)\n\nc = pl.LpVariable(\"crab_cakes\", lowBound=0)\nl = pl.LpVariable(\"lobster_rolls\", lowBound=0)\n\nprob += 4 * c + 6 * l\n\nprob += 5 * c + 8 * l >= 80\nprob += 7 * c + 4 * l >= 100\nprob += 3 * l - 2 * c <= 0\n\nprob.solve(pl.PULP_CBC_CMD(msg=False))\n\nprint(\"Status:\", pl.LpStatus[prob.status])\nprint(\"Crab_cakes:\", float(pl.value(c)))\nprint(\"Lobster_rolls:\", float(pl.value(l)))\nprint(\"Total_unsaturated_fat:\", float(pl.value(prob.objective)))",
+        "execution_trace": "Status: Optimal\nCrab_cakes: 13.333333\nLobster_rolls: 1.6666667\nTotal_unsaturated_fat: 63.3333322\n\n",
+        "returncode": 0,
+        "generation_tokens": 2634,
+        "stratum": "optimal",
+        "deterministic": {
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "parsed_value": 63.3333322,
+          "ground_truth": 63.33333333333333,
+          "gap_term": 3.999999928421053,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and returned an optimal solution with quantities and objective. The solution (crab cakes ≈ 13.3333, lobster rolls ≈ 1.6667) satisfies all constraints: vitamin A ≈ 80 and vitamin C ≈ 100 (both meeting lower bounds within rounding), lobster share ≈ 11.1% ≤ 40%, and nonnegativity. The total unsaturated fat 63.3333322 matches the ground-truth value within the specified tolerance.",
+          "tokens": 1867
+        },
+        {
+          "repeat": 2,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Execution succeeded and reported an optimal LP solution. Solution x=13.333333 crab cakes and y=1.6666667 lobster rolls satisfies all constraints: vitamin A = 80 and vitamin C = 100 (both binding), lobster share y/(x+y) ≈ 0.111 <= 0.4, and nonnegativity. Reported total unsaturated fat 63.3333322 is consistent with 4x+6y and matches the ground truth within tolerance.",
+          "tokens": 1866
+        },
+        {
+          "repeat": 3,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported Optimal. Solution x=13.333333 crab cakes, y=1.6666667 lobster rolls is feasible: Vitamin A ≈ 80, Vitamin C = 100, lobster fraction 1.6667/15 = 0.111 ≤ 0.4. Objective 4x+6y = 63.3333322 matches ground truth 63.3333333 within tolerance. Constraints satisfied and objective value optimal/plausible.",
+          "tokens": 1479
+        },
+        {
+          "repeat": 4,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported an optimal solution. The solution (crab cakes = 13.333333, lobster rolls = 1.6666667) satisfies vitamin A (5*13.333333 + 8*1.6666667 = 80) and vitamin C (7*13.333333 + 4*1.6666667 = 100) exactly, and the lobster proportion is about 10.9% ≤ 40%. The total unsaturated fat 63.3333322 matches the ground truth within the specified tolerance.",
+          "tokens": 1494
+        },
+        {
+          "repeat": 5,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Execution successful (Status: Optimal). Reported solution satisfies vitamin A/C requirements and lobster ≤40% constraint; objective value 63.3333322 matches ground-truth 63.3333333 within tolerance. Minor rounding in printed variables.",
+          "tokens": 2005
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "mean_score": 10.0,
+        "sd_score": 0.0,
+        "score_range": 0.0,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 10.0
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_004",
+        "problem_index": 4,
+        "stratum": "optimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_018",
+        "problem_index": 18,
+        "problem_description": "A patient takes anxiety medication and anti-depressants one after the other. Each unit of anxiety medication takes 3 minutes to be effective while each unit of anti-depressant takes 5 minutes to be effective. The patient must take at least 100 units of medication and at least 30 should be anxiety medication. Since the anxiety medication is strong, the patient can take at most twice the amount of anxiety medication as anti-depressants. How many units of each should the patient take to minimize the total time it take for the medication to be effective?",
+        "ground_truth": "366.6666666666667",
+        "code": "from ortools.sat.python import cp_model\n\nmodel = cp_model.CpModel()\n\nx = model.NewIntVar(0, 1000, \"anxiety_units\")\ny = model.NewIntVar(0, 1000, \"antidepressant_units\")\n\nmodel.Add(x + y >= 100)\nmodel.Add(x >= 30)\nmodel.Add(x <= 2 * y)\n\nmodel.Minimize(3 * x + 5 * y)\n\nsolver = cp_model.CpSolver()\nstatus = solver.Solve(model)\n\nif status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:\n    ax = solver.Value(x)\n    ay = solver.Value(y)\n    total_units = ax + ay\n    total_time = 3 * ax + 5 * ay\n    print(\"Anxiety_units:\", ax)\n    print(\"Antidepressant_units:\", ay)\n    print(\"Total_units:\", total_units)\n    print(\"Total_time_minutes:\", total_time)\nelse:\n    print(\"No feasible solution found.\")",
+        "execution_trace": "Anxiety_units: 66\nAntidepressant_units: 34\nTotal_units: 100\nTotal_time_minutes: 368\n\n",
+        "returncode": 0,
+        "generation_tokens": 2785,
+        "stratum": "suboptimal",
+        "deterministic": {
+          "score": 8.985454545454585,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "parsed_value": 368.0,
+          "ground_truth": 366.6666666666667,
+          "gap_term": 3.9854545454545853,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 8.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a feasible solution: total units=100, anxiety=66 (>=30), and anxiety<=2*antidepressants (66<=68). The objective value (total time) is 368 minutes, which is close but not equal to the ground-truth optimum 366.6667. The result would be optimal if integer units were required, but it misses the fractional optimum expected by the ground truth.",
+          "tokens": 1943
+        },
+        {
+          "repeat": 2,
+          "score": 8.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a feasible solution: 66 anxiety units and 34 antidepressant units, satisfying all constraints (total >= 100, anxiety >= 30, anxiety <= 2×antidepressant). The reported total time is 368 minutes, which is close but not equal to the LP optimum of 366.667 minutes achieved at approximately 66.667 anxiety and 33.333 antidepressant units. The result is near-optimal, likely due to unnecessary integrality.",
+          "tokens": 2723
+        },
+        {
+          "repeat": 3,
+          "score": 7.5,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a feasible solution: A=66, B=34, total=100, time=368. All constraints (A+B≥100, A≥30, A≤2B) are satisfied. However, the optimal continuous solution is A=66.6667, B=33.3333 with time 366.6667; the returned integers make it slightly suboptimal by 1.3333 minutes.",
+          "tokens": 1753
+        },
+        {
+          "repeat": 4,
+          "score": 8.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a feasible solution meeting all constraints (A=66, D=34; A+D=100; A>=30; A<=2D). The total time 368 minutes is close to the optimal 366.6667 minutes (at A=66.6667, D=33.3333), but does not match the ground-truth value—likely due to enforcing integer units.",
+          "tokens": 1812
+        },
+        {
+          "repeat": 5,
+          "score": 8.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a feasible solution: A=66, D=34, meeting all constraints (A+D=100, A>=30, A<=2D). The total time 368 is close but not optimal; the LP optimum is A=66.6667, D=33.3333 with total time 366.6667. The slight gap suggests an unnecessary integrality restriction.",
+          "tokens": 1810
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          8.0,
+          8.0,
+          7.5,
+          8.0,
+          8.0
+        ],
+        "mean_score": 7.9,
+        "sd_score": 0.2,
+        "score_range": 0.5,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 8.985454545454585
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_018",
+        "problem_index": 18,
+        "stratum": "suboptimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_019",
+        "problem_index": 19,
+        "problem_description": "A pharmacy makes eye cream and foot cream using two different machines, machine 1 and machine 2. Machine 1 can  make 30 ml of eye cream and 60 ml of foot cream per hour. Machine 2 can make 45 ml of eye cream and 30 ml of foot cream per hour. Furthermore, machine 1 requires 20 ml of distilled water per hour while machine 2 requires 15 ml of distilled water per hour. The pharmacy has available 1200 ml of distilled water. If the pharmacy needs to make at least 1300 ml of eye cream and 1500 ml of foot cream, how many hours should each machine be used to minimize the total time needed?",
+        "ground_truth": "34.166666666666664",
+        "code": "import sys\nimport subprocess\n\ntry:\n    import pulp\nexcept ImportError:\n    subprocess.check_call([sys.executable, \"-m\", \"pip\", \"install\", \"pulp\", \"--quiet\"])\n    import pulp\n\nproblem = pulp.LpProblem(\"Pharmacy_Production\", pulp.LpMinimize)\n\nh1 = pulp.LpVariable(\"hours_machine1\", lowBound=0, cat=\"Continuous\")\nh2 = pulp.LpVariable(\"hours_machine2\", lowBound=0, cat=\"Continuous\")\n\nproblem += h1 + h2\n\nproblem += 30 * h1 + 45 * h2 >= 1300\nproblem += 60 * h1 + 30 * h2 >= 1500\nproblem += 20 * h1 + 15 * h2 <= 1200\n\nsolver = pulp.PULP_CBC_CMD(msg=False)\nproblem.solve(solver)\n\nh1_val = pulp.value(h1)\nh2_val = pulp.value(h2)\ntotal_time = h1_val + h2_val\neye_prod = 30 * h1_val + 45 * h2_val\nfoot_prod = 60 * h1_val + 30 * h2_val\nwater_use = 20 * h1_val + 15 * h2_val\n\nprint(\"Status:\", pulp.LpStatus[problem.status])\nprint(\"Hours on Machine 1:\", round(h1_val, 6))\nprint(\"Hours on Machine 2:\", round(h2_val, 6))\nprint(\"Total time (hours):\", round(total_time, 6))\nprint(\"Eye cream produced (ml):\", round(eye_prod, 6))\nprint(\"Foot cream produced (ml):\", round(foot_prod, 6))\nprint(\"Water used (ml):\", round(water_use, 6))",
+        "execution_trace": "Status: Optimal\nHours on Machine 1: 15.833333\nHours on Machine 2: 18.333333\nTotal time (hours): 34.166666\nEye cream produced (ml): 1299.999975\nFoot cream produced (ml): 1499.99997\nWater used (ml): 591.666655\n\n",
+        "returncode": 0,
+        "generation_tokens": 3940,
+        "stratum": "suboptimal",
+        "deterministic": {
+          "score": 5.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "parsed_value": 591.666655,
+          "ground_truth": 34.166666666666664,
+          "gap_term": 0.0,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 7.6,
+          "executed": true,
+          "constraint_satisfied": false,
+          "matches_ground_truth": true,
+          "explanation": "Execution succeeded and reported an optimal solution. The total time (34.166666) matches the ground-truth within tolerance. However, the production constraints are slightly violated: eye cream = 1299.999975 ml (< 1300) and foot cream = 1499.99997 ml (< 1500). Water usage and nonnegativity are satisfied.",
+          "tokens": 1818
+        },
+        {
+          "repeat": 2,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Execution succeeded with an optimal solution. Hours: M1=15.833333, M2=18.333333, total time 34.166666 h. Eye and foot outputs meet the requirements at equality in exact arithmetic; the tiny shortfalls shown are due to floating-point rounding. Water use (≈591.67 ml) respects the 1200 ml limit. Total time matches the ground truth within tolerance.",
+          "tokens": 1957
+        },
+        {
+          "repeat": 3,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Solver ran to optimality and produced a complete, plausible solution. Reported hours yield the minimum total time and match the analytical solution; total time matches ground truth within tolerance. Minor underage in reported outputs is due to floating-point truncation; with exact fractional hours the cream constraints are met exactly. Water constraint is comfortably satisfied.",
+          "tokens": 2450
+        },
+        {
+          "repeat": 4,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Solver ran and reported an optimal solution with clear outputs. Using the reported hours (M1 = 95/6, M2 = 55/3), the eye and foot cream requirements are exactly met (1300 ml and 1500 ml), and water usage (≈591.67 ml) is within the 1200 ml limit. The tiny shortfalls printed for production are due to floating-point rounding. The total time 34.166666 matches the ground truth within the specified tolerance.",
+          "tokens": 1973
+        },
+        {
+          "repeat": 5,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported an optimal solution. The hours (15.833333, 18.333333) yield exactly 1300 ml eye and 1500 ml foot cream in exact arithmetic and use 591.6667 ml water (<1200), so constraints are satisfied. The reported totals are slightly under due to floating-point printing but are within solver tolerance. The total time 34.166666 matches the ground-truth within tolerance.",
+          "tokens": 1962
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          7.6,
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "mean_score": 9.52,
+        "sd_score": 0.9600000000000002,
+        "score_range": 2.4000000000000004,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 0.8,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 5.0
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false
+        },
+        "trace_id": "nlp4lp_019",
+        "problem_index": 19,
+        "stratum": "suboptimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_021",
+        "problem_index": 21,
+        "problem_description": "A company make both liquid and foam hand sanitizer. Liquid hand sanitizer requires 40 units of water and 50 units of alcohol. Foam hand sanitizer requires 60 units of water and 40 units of alcohol. The company has available 2000 units of water and 2100 units of alcohol. The number of foam hand sanitizers made must exceed the number of liquid hand sanitizers. In addition, at most 30 liquid hand sanitizers can be made. If each liquid hand sanitizer can clean 30 hands and each foam hand sanitizer can clean 20 hands, how many of each should the company make to maximize the number of hands that can be cleaned?",
+        "ground_truth": "1260.0",
+        "code": "import pulp\n\nprob = pulp.LpProblem(\"Hand_Sanitizer_Production\", pulp.LpMaximize)\n\nL = pulp.LpVariable(\"Liquid\", lowBound=0, cat=\"Integer\")\nF = pulp.LpVariable(\"Foam\", lowBound=0, cat=\"Integer\")\n\nprob += 30 * L + 20 * F\n\nprob += 40 * L + 60 * F <= 2000\nprob += 50 * L + 40 * F <= 2100\nprob += F - L >= 1\nprob += L <= 30\n\nprob.solve(pulp.PULP_CBC_CMD(msg=False))\n\nprint(\"Status:\", pulp.LpStatus[prob.status])\nprint(\"Liquid_hand_sanitizers:\", int(pulp.value(L)))\nprint(\"Foam_hand_sanitizers:\", int(pulp.value(F)))\nprint(\"Max_hands_cleaned:\", int(pulp.value(prob.objective)))",
+        "execution_trace": "Status: Optimal\nLiquid_hand_sanitizers: 19\nFoam_hand_sanitizers: 20\nMax_hands_cleaned: 970\n\n",
+        "returncode": 0,
+        "generation_tokens": 3171,
+        "stratum": "suboptimal",
+        "deterministic": {
+          "score": 8.079365079365811,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "parsed_value": 970.0,
+          "ground_truth": 1260.0,
+          "gap_term": 3.07936507936581,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 6.5,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a coherent, feasible solution: x=19 (liquid), y=20 (foam) satisfies water (1960<=2000), alcohol (1750<=2100), y>x, and x<=30. Objective 970 matches 30*19+20*20. However, it does not match the provided ground-truth maximum 1260 (diff=290). The returned solution appears optimal under the stated constraints, but it diverges from the ground-truth value, indicating a mismatch between the model used and the reference answer.",
+          "tokens": 6281
+        },
+        {
+          "repeat": 2,
+          "score": 8.5,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and reported an optimal, feasible solution: L=19, F=20. Constraints check out: water 40*19+60*20=1960<=2000, alcohol 50*19+40*20=1750<=2100, foam exceeds liquid (20>19), and L<=30. Objective value 970 is consistent with these counts and appears optimal given F>L. However, it does not match the provided ground-truth 1260, which seems infeasible under the stated constraints.",
+          "tokens": 4162
+        },
+        {
+          "repeat": 3,
+          "score": 8.5,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and returned a complete solution. The reported plan (L=19, F=20) satisfies all constraints: water 1960<=2000, alcohol 1750<=2100, F>L, and L<=30. Given the integer and F>L constraints, this (19,20) combination maximizes 30L+20F at 970; checking neighboring L confirms no higher feasible objective. The provided ground truth 1260 corresponds to producing only liquids (e.g., 42 units) and ignores the constraints F>L and L<=30, so the numeric result does not match that ground truth.",
+          "tokens": 6165
+        },
+        {
+          "repeat": 4,
+          "score": 3.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and returned a complete, feasible solution: L=19, F=20 uses 1960/2000 water and 1750/2100 alcohol, satisfies F > L and L ≤ 30, with objective 970. However, it does not match the provided ground-truth optimum of 1260.0 and is therefore graded as incorrect despite feasibility.",
+          "tokens": 4323
+        },
+        {
+          "repeat": 5,
+          "score": 9.2,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and returned an integer-feasible solution: x=19 (liquid), y=20 (foam). Constraints check: water 40*19+60*20=1960<=2000, alcohol 50*19+40*20=1750<=2100, y>x holds (20>19), and x<=30 holds. Objective value 30*19+20*20=970. Given the dominance of liquid in both resources and the y>x requirement, the optimal structure is y=x+1 with water binding, yielding x<=19 and thus x=19,y=20 as optimal. The reported 970 is therefore plausible and likely optimal. It does not match the provided ground truth 1260.0, which appears inconsistent with the stated constraints.",
+          "tokens": 4214
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          6.5,
+          8.5,
+          8.5,
+          3.0,
+          9.2
+        ],
+        "mean_score": 7.14,
+        "sd_score": 2.2579636843846713,
+        "score_range": 6.199999999999999,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 8.079365079365811
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_021",
+        "problem_index": 21,
+        "stratum": "suboptimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_022",
+        "problem_index": 22,
+        "problem_description": "A clinic is conducting a throat or nasal swabs on each patient. A throat swab takes 5 minutes while a nasal swab takes 3 minutes. The clinic must administer at least 30 nasal swabs. Since the nasal swab is more uncomfortable, at least 4 times as many throat swabs must be done as nasal swabs. If the clinic is only operational for 20000 minutes, how many of each swab should be done to maximize the number of patients seen?",
+        "ground_truth": "4347.0",
+        "code": "import sys\n\ntry:\n    import pulp\nexcept ImportError:\n    print(\"PuLP is required to run this script.\")\n    sys.exit(1)\n\nfrom pulp import LpProblem, LpMaximize, LpVariable, LpInteger, lpSum, LpStatus, PULP_CBC_CMD, value\n\nprob = LpProblem(\"Clinic_Swabs_Optimization\", LpMaximize)\n\nT = LpVariable(\"Throat\", lowBound=0, cat=LpInteger)\nN = LpVariable(\"Nasal\", lowBound=0, cat=LpInteger)\n\nprob += T + N\n\nprob += 5*T + 3*N <= 20000\nprob += N >= 30\nprob += T >= 4*N\n\nprob.solve(PULP_CBC_CMD(msg=False))\n\nT_val = int(round(value(T)))\nN_val = int(round(value(N)))\ntotal_patients = T_val + N_val\ntotal_time = 5*T_val + 3*N_val\n\nprint(\"Status:\", LpStatus[prob.status])\nprint(\"Throat swabs:\", T_val)\nprint(\"Nasal swabs:\", N_val)\nprint(\"Total patients:\", total_patients)\nprint(\"Total time used:\", total_time)",
+        "execution_trace": "Status: Optimal\nThroat swabs: 3478\nNasal swabs: 869\nTotal patients: 4347\nTotal time used: 19997\n\n",
+        "returncode": 0,
+        "generation_tokens": 3397,
+        "stratum": "suboptimal",
+        "deterministic": {
+          "score": 5.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "parsed_value": 19997.0,
+          "ground_truth": 4347.0,
+          "gap_term": 0.0,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported optimal. Feasible solution: N=869 (>=30), T=3478 (>=4*869), time 5*T+3*N=19997 (<=20000). Total patients 4347 matches the ground truth 4347.0.",
+          "tokens": 2099
+        },
+        {
+          "repeat": 2,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported Optimal. Solution is feasible: n=869>=30, t=3478>=4*869, and time 5*3478+3*869=19997<=20000. Objective t+n=4347 matches the ground-truth exactly, with near-full time utilization.",
+          "tokens": 1721
+        },
+        {
+          "repeat": 3,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported optimal. Returned T=3478, N=869 with total patients 4347 and time 19997. Constraints satisfied: N≥30, T≥4N (3478≥3476), and 5T+3N=19997≤20000. Objective matches ground-truth 4347.",
+          "tokens": 1918
+        },
+        {
+          "repeat": 4,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported an optimal, feasible solution. Constraints satisfied: N>=30 (869), T>=4N (3478>=3476), and time 5T+3N=19997<=20000. Total patients 4347 matches the ground truth.",
+          "tokens": 1265
+        },
+        {
+          "repeat": 5,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and returned an optimal, feasible solution. Constraints satisfied: N=869>=30, T=3478>=4*N=3476, and time 5*3478+3*869=19997<=20000. Objective value (patients) 4347 matches the ground-truth.",
+          "tokens": 2168
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "mean_score": 10.0,
+        "sd_score": 0.0,
+        "score_range": 0.0,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 5.0
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false
+        },
+        "trace_id": "nlp4lp_022",
+        "problem_index": 22,
+        "stratum": "suboptimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_024",
+        "problem_index": 24,
+        "problem_description": "A patient in the hospital can take two different pain killers, pain killer 1 and pain killer 2. Per dose, pain killer 1 delivers 0.5 units of medicine to the legs and 0.8 units of medicine to the back. Per dose, pain killer 2 delivers 0.7 units of medicine to the legs and 0.4 units of medicine to the back. In, addition pain killer 1 deliver 0.3 units of sleeping medicine and pain killer 2 delivers 0.6 units of sleeping medicine. At most 8 units of sleep medicine should be delivered and at least 4 units of medicine should be delivered to the legs. How many doses of each should be taken to maximize the amount of medicine delivered to the back?",
+        "ground_truth": "6.857142857142857",
+        "code": "import pulp\n\n# Define problem\nmodel = pulp.LpProblem(\"PainKillerOptimization\", pulp.LpMaximize)\n\n# Variables\nx1 = pulp.LpVariable('x1', lowBound=0)\nx2 = pulp.LpVariable('x2', lowBound=0)\n\n# Objective: Maximize back medicine\nmodel += 0.8 * x1 + 0.4 * x2\n\n# Constraints\nmodel += 0.5 * x1 + 0.7 * x2 >= 4    # Legs at least 4 units\nmodel += 0.3 * x1 + 0.6 * x2 <= 8    # Sleep at most 8 units\n\n# Solve\nmodel.solve(pulp.PULP_CBC_CMD(msg=False))\n\n# Output\nprint(\"Status:\", pulp.LpStatus[model.status])\nprint(\"x1_doses =\", round(pulp.value(x1), 6))\nprint(\"x2_doses =\", round(pulp.value(x2), 6))\nprint(\"Back_medicine =\", round(pulp.value(0.8 * x1 + 0.4 * x2), 6))\nprint(\"Legs_medicine =\", round(pulp.value(0.5 * x1 + 0.7 * x2), 6))\nprint(\"Sleep_medicine =\", round(pulp.value(0.3 * x1 + 0.6 * x2), 6))",
+        "execution_trace": "Status: Optimal\nx1_doses = 26.666667\nx2_doses = 0.0\nBack_medicine = 21.333334\nLegs_medicine = 13.333334\nSleep_medicine = 8.0\n\n",
+        "returncode": 0,
+        "generation_tokens": 3242,
+        "stratum": "suboptimal",
+        "deterministic": {
+          "score": 8.333333333430556,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "parsed_value": 8.0,
+          "ground_truth": 6.857142857142857,
+          "gap_term": 3.3333333334305553,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 8.7,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and reported an optimal solution. Reported doses (x1=26.666667, x2=0) satisfy constraints: sleep = 8.0 <= 8 and legs = 13.333334 >= 4. Objective (back medicine = 21.333334) is consistent with maximizing back per unit sleep and saturating the sleep limit. However, the result does not match the provided ground-truth numeric value.",
+          "tokens": 2468
+        },
+        {
+          "repeat": 2,
+          "score": 7.5,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "The solver executed and reported an optimal solution. Reported doses x1=26.666667 and x2=0.0 satisfy the constraints: sleep = 0.3*26.666667 = 8.0 (<= 8) and legs = 0.5*26.666667 = 13.333334 (>= 4), with nonnegativity respected. The objective value for back medicine (0.8*x1 + 0.4*x2 = 21.333334) is consistent and plausibly optimal given drug 1’s superior back-per-sleep ratio. However, no value in the trace matches the provided ground-truth numeric answer 6.857142857142857 within tolerance.",
+          "tokens": 2400
+        },
+        {
+          "repeat": 3,
+          "score": 8.8,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and reported an optimal solution. The solution is feasible: sleep = 8.0 (<= 8) and legs = 13.333334 (>= 4), with nonnegative doses (x1 = 26.666667, x2 = 0). Objective value (back = 21.333334) is consistent with maximizing back given sleep constraint, favoring drug 1 due to better back-per-sleep ratio. However, the result does not match the provided ground-truth numeric value (6.857142857142857).",
+          "tokens": 3005
+        },
+        {
+          "repeat": 4,
+          "score": 8.7,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and reported an optimal, feasible solution: x1=26.666667, x2=0.0, saturating the sleep constraint and easily meeting the legs requirement. This choice is consistent with maximizing back medicine (pain killer 1 yields more back per unit sleep). However, the result does not match the provided ground-truth value 6.857142857142857.",
+          "tokens": 3289
+        },
+        {
+          "repeat": 5,
+          "score": 7.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "The solver executed and reported an optimal solution with x1=26.666667, x2=0.0, yielding Back=21.333334, Legs=13.333334, Sleep=8.0. All constraints are satisfied (sleep ≤ 8, legs ≥ 4, nonnegativity). The solution is plausible (maximizing back favors pain killer 1 under these constraints). However, the reported results do not match the provided ground-truth numeric answer 6.857142857 within the given tolerance.",
+          "tokens": 3254
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          8.7,
+          7.5,
+          8.8,
+          8.7,
+          7.0
+        ],
+        "mean_score": 8.14,
+        "sd_score": 0.7445804187594514,
+        "score_range": 1.8000000000000007,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 8.333333333430556
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_024",
+        "problem_index": 24,
+        "stratum": "suboptimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_035",
+        "problem_index": 35,
+        "problem_description": "A chemistry teacher teaches her students two experiments, experiment 1 and experiment 2. In experiment 1, 3 units of the red liquid and 4 units of the blue liquid mix to create 5 units of green gas. In experiment 2, 5 units of the red liquid and 3 units of the blue liquid mix to create 6 units of the green gas. In addition, experiment 1 produces 1 units of smelly gas while experiment 2 produces 2 units of smelly gas.  The lab has available 80 units of red liquid and 70 units of blue liquid. If at most 10 units of smelly gas can be produced, how many experiments of each should be done to maximize the total amount of green gas produced?",
+        "ground_truth": "11.0",
+        "code": "import pulp\n\nprob = pulp.LpProblem(\"Maximize_Green_Gas\", pulp.LpMaximize)\n\nx1 = pulp.LpVariable(\"experiment_1\", lowBound=0, cat=\"Integer\")\nx2 = pulp.LpVariable(\"experiment_2\", lowBound=0, cat=\"Integer\")\n\nprob += 5 * x1 + 6 * x2\n\nprob += 3 * x1 + 5 * x2 <= 80\nprob += 4 * x1 + 3 * x2 <= 70\nprob += x1 + 2 * x2 <= 10\n\nprob.solve(pulp.PULP_CBC_CMD(msg=False))\n\nx1_val = int(pulp.value(x1))\nx2_val = int(pulp.value(x2))\ngreen_total = int(pulp.value(5 * x1 + 6 * x2))\n\nprint(\"Status:\", pulp.LpStatus[prob.status])\nprint(\"Experiment_1:\", x1_val)\nprint(\"Experiment_2:\", x2_val)\nprint(\"Total_Green_Gas:\", green_total)",
+        "execution_trace": "Status: Optimal\nExperiment_1: 10\nExperiment_2: 0\nTotal_Green_Gas: 50\n\n",
+        "returncode": 0,
+        "generation_tokens": 2652,
+        "stratum": "suboptimal",
+        "deterministic": {
+          "score": 5.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "parsed_value": 50.0,
+          "ground_truth": 11.0,
+          "gap_term": 0.0,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 9.5,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and returned an optimal, feasible solution (Experiment_1=10, Experiment_2=0) satisfying all resource and smelly gas constraints, producing Total_Green_Gas=50. This aligns with the model and appears optimal. However, the extracted final numeric (50) does not match the provided ground-truth value 11.0.",
+          "tokens": 2672
+        },
+        {
+          "repeat": 2,
+          "score": 9.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and returned a clear feasible solution: x1=10, x2=0, using red=30<=80, blue=40<=70, smelly=10<=10, with Total_Green_Gas=50. Given smelly gas is the binding constraint and experiment 1 yields more green per unit of smelly (5 vs 3), this solution is plausibly optimal. However, the reported numeric output (50 or 10) does not match the provided ground-truth value 11.0.",
+          "tokens": 2323
+        },
+        {
+          "repeat": 3,
+          "score": 8.2,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and reported an optimal, feasible solution: Experiment_1=10, Experiment_2=0, yielding Total_Green_Gas=50. All constraints are satisfied (red: 30≤80, blue: 40≤70, smelly: 10≤10). The solution is objectively optimal since smelly gas is the binding constraint and experiment 1 yields more green per unit smelly (5 vs 3). However, the reported numeric result (50) does not match the provided ground-truth value (11.0).",
+          "tokens": 2712
+        },
+        {
+          "repeat": 4,
+          "score": 9.5,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and reported an optimal, feasible solution: Experiment_1=10, Experiment_2=0, Total_Green_Gas=50. All resource and smelly-gas constraints are satisfied, and allocating all smelly budget to experiment 1 is optimal given its higher green-gas-per-smelly yield (5 vs 3). The provided ground-truth value 11.0 does not match any final numeric result from the execution (e.g., 50), so matches_ground_truth is false.",
+          "tokens": 2831
+        },
+        {
+          "repeat": 5,
+          "score": 8.5,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and returned a clear, feasible solution: x1=10, x2=0, using red=30<=80, blue=40<=70, smelly=10<=10, producing 50 green gas. Given green-per-smell efficiency (exp1:5 vs exp2:3) and the smelly gas cap binding at 10, this is plausibly optimal. However, it does not match the provided ground-truth value 11.0.",
+          "tokens": 2185
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          9.5,
+          9.0,
+          8.2,
+          9.5,
+          8.5
+        ],
+        "mean_score": 8.94,
+        "sd_score": 0.523832034148352,
+        "score_range": 1.3000000000000007,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 5.0
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_035",
+        "problem_index": 35,
+        "stratum": "suboptimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_042",
+        "problem_index": 42,
+        "problem_description": "An art store makes large and small art pieces. The store has available 100 units of paint, 50 units of glitter, and 70 units of glue. To make a large art piece requires 4 units of paint, 3 units of glitter, and 5 units of glue. To make a small art piece requires 2 units of paint, 1 unit of glitter, and 2 units of glue. The store must make at least 5 units of each large and small art pieces. If the profit per large art piece is $30 and the profit per small art piece is $15, how many of each should be made to maximize profit?",
+        "ground_truth": "486.0",
+        "code": "import pulp\n\n# Define the problem\nprob = pulp.LpProblem(\"Art_Production_Optimization\", pulp.LpMaximize)\n\n# Decision variables\nL = pulp.LpVariable('Large', lowBound=5, cat='Integer')\nS = pulp.LpVariable('Small', lowBound=5, cat='Integer')\n\n# Objective function\nprob += 30 * L + 15 * S\n\n# Constraints\nprob += 4 * L + 2 * S <= 100\nprob += 3 * L + 1 * S <= 50\nprob += 5 * L + 2 * S <= 70\n\n# Solve\nprob.solve(pulp.PULP_CBC_CMD(msg=False))\n\n# Output\nprint(\"Status:\", pulp.LpStatus[prob.status])\nprint(\"Large_art_pieces:\", int(pulp.value(L)))\nprint(\"Small_art_pieces:\", int(pulp.value(S)))\nprint(\"Maximum_Profit:\", pulp.value(prob.objective))",
+        "execution_trace": "Status: Optimal\nLarge_art_pieces: 5\nSmall_art_pieces: 22\nMaximum_Profit: 480.0\n\n",
+        "returncode": 0,
+        "generation_tokens": 2286,
+        "stratum": "suboptimal",
+        "deterministic": {
+          "score": 8.950617283950718,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "parsed_value": 480.0,
+          "ground_truth": 486.0,
+          "gap_term": 3.9506172839507188,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 6.8,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and returned a feasible solution labeled Optimal: L=5, S=22 with profit 480. Constraints are satisfied (paint 64<=100, glitter 37<=50, glue 69<=70; and at least 5 of each). However, the reported maximum profit (480) does not match the ground-truth value (486), indicating suboptimality relative to the reference (possibly due to enforcing integrality or an incomplete search).",
+          "tokens": 4209
+        },
+        {
+          "repeat": 2,
+          "score": 7.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a clear feasible solution (L=5, S=22) meeting all resource and minimum-production constraints; reported profit 480.0. However, it does not match the provided ground-truth objective 486.0, indicating a suboptimal result (off by 6.0).",
+          "tokens": 4627
+        },
+        {
+          "repeat": 3,
+          "score": 6.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and returned a feasible solution (L=5, S=22) with profit 480.0; all resource and minimum-quantity constraints are satisfied. However, the reported maximum profit does not match the ground-truth value (486.0), indicating suboptimality despite the 'Optimal' status claim.",
+          "tokens": 3860
+        },
+        {
+          "repeat": 4,
+          "score": 7.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a feasible solution labeled Optimal: Large=5, Small=22, Profit=480.0. All constraints are satisfied (paint 64/100, glitter 37/50, glue 69/70, both >=5). However, the profit does not match the ground-truth 486.0 (off by 6.0), suggesting a suboptimal objective relative to the expected optimum (likely due to integrality assumptions versus a fractional optimum).",
+          "tokens": 4533
+        },
+        {
+          "repeat": 5,
+          "score": 8.5,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and returned an optimal, feasible integer solution: L=5, S=22. All resource and minimum-production constraints are satisfied (paint 64<=100, glitter 37<=50, glue 69<=70; L,S>=5). Reported profit is 480.0. This does not match the provided ground-truth 486.0 (difference 6.0), and 486 is not a multiple of 15, so it is inconsistent with the objective form 15(2L+S). The returned solution is optimal for the integer case (ties with L=6,S=20).",
+          "tokens": 3347
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          6.8,
+          7.0,
+          6.0,
+          7.0,
+          8.5
+        ],
+        "mean_score": 7.06,
+        "sd_score": 0.8089499366462675,
+        "score_range": 2.5,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 8.950617283950718
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_042",
+        "problem_index": 42,
+        "stratum": "suboptimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_049",
+        "problem_index": 49,
+        "problem_description": "A shoe company supplies shoes to stores via vans and trucks. A van can transport 50 pairs of shoes while a truck can transport 100 pairs of shoes. The company must supply a minimum of 2000 pairs of shoes around the city. Since most stores are small, the number of trucks used cannot exceed the number of vans used.  Find the minimum number of vans that can be used?",
+        "ground_truth": "14.0",
+        "code": "from ortools.sat.python import cp_model\n\nmodel = cp_model.CpModel()\n\nvans = model.NewIntVar(0, 1000, 'vans')\ntrucks = model.NewIntVar(0, 1000, 'trucks')\n\nmodel.Add(50 * vans + 100 * trucks >= 2000)\nmodel.Add(trucks <= vans)\n\nmodel.Minimize(vans)\n\nsolver = cp_model.CpSolver()\nstatus = solver.Solve(model)\n\nif status in (cp_model.OPTIMAL, cp_model.FEASIBLE):\n    v = solver.Value(vans)\n    t = solver.Value(trucks)\n    print(\"Minimum number of vans:\", v)\n    print(\"Number of trucks:\", t)\n    print(\"Total pairs delivered:\", 50 * v + 100 * t)\n    print(f\"FINAL_ANSWER: {v}\")\nelse:\n    print(\"No solution found.\")",
+        "execution_trace": "Minimum number of vans: 14\nNumber of trucks: 13\nTotal pairs delivered: 2000\nFINAL_ANSWER: 14\n\n",
+        "returncode": 0,
+        "generation_tokens": 1386,
+        "stratum": "optimal",
+        "deterministic": {
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "parsed_value": 14.0,
+          "ground_truth": 14.0,
+          "gap_term": 4.0,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a complete, feasible solution: 14 vans and 13 trucks deliver 2000 pairs, satisfying trucks <= vans and demand >= 2000. The minimum number of vans is indeed 14 (since with t <= v, the least v satisfying 50v + 100t >= 2000 is v=14). The final numeric answer matches the ground truth.",
+          "tokens": 1326
+        },
+        {
+          "repeat": 2,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Execution produced a feasible and optimal solution. With 14 vans and 13 trucks, total pairs = 14*50 + 13*100 = 2000, meeting the minimum. Constraint trucks ≤ vans is satisfied (13 ≤ 14). Optimality: maximizing trucks under y ≤ x gives total 150x ≥ 2000 ⇒ x ≥ 14, so 14 vans is minimal. Matches ground truth.",
+          "tokens": 1076
+        },
+        {
+          "repeat": 3,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a feasible, optimal solution: 14 vans and 13 trucks deliver exactly 2000 pairs, satisfying trucks <= vans. The final answer matches the ground truth (14).",
+          "tokens": 1223
+        },
+        {
+          "repeat": 4,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a feasible, optimal solution: 14 vans and 13 trucks deliver 2000 pairs with trucks <= vans. With 13 vans (and at most 13 trucks), the maximum is 1950 pairs, so 14 vans is minimal. The final numeric answer matches the ground truth.",
+          "tokens": 1246
+        },
+        {
+          "repeat": 5,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and returned a feasible and optimal solution: 14 vans and 13 trucks deliver exactly 2000 pairs, satisfying t ≤ v. This matches the ground truth; optimality follows since with t = v, 150v ≥ 2000 implies v ≥ 14.",
+          "tokens": 1112
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "mean_score": 10.0,
+        "sd_score": 0.0,
+        "score_range": 0.0,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 10.0
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_049",
+        "problem_index": 49,
+        "stratum": "optimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_064",
+        "problem_index": 64,
+        "problem_description": "My grandma is required to take two medicines Z1 and D3 everyday. She needs to take at least 5 grams of Z1 and 10 grams of D3 everyday. These medicines are available in two pills named Zodiac and Sunny. One pill of Zodiac contains 1.3 grams of Z1 while one pill of Sunny contains 1.2 grams of Z1. On the other hand, one pill of Zodiac contains 1.5 grams of D3 and one pill of Sunny contains 5 grams of D3. The cost per pill of Zodiac is $1 and the cost per pill of Sunny is $3. Formulate a LP such that the medicine requirement can be fulfilled at the lowest cost.",
+        "ground_truth": "7.0",
+        "code": "import numpy as np\nfrom scipy.optimize import linprog\n\nc = [1.0, 3.0]\nA_ub = [\n    [-1.3, -1.2],\n    [-1.5, -5.0]\n]\nb_ub = [-5.0, -10.0]\nbounds = [(0, None), (0, None)]\n\nres = linprog(c, A_ub=A_ub, b_ub=b_ub, bounds=bounds, method=\"highs\")\n\nif not res.success:\n    print(\"Optimization failed:\", res.message)\nelse:\n    x, y = res.x\n    cost = res.fun\n    z1 = 1.3 * x + 1.2 * y\n    d3 = 1.5 * x + 5.0 * y\n    print(\"Zodiac_pills:\", x)\n    print(\"Sunny_pills:\", y)\n    print(\"Total_cost:\", cost)\n    print(\"Z1_grams:\", z1)\n    print(\"D3_grams:\", d3)",
+        "execution_trace": "Zodiac_pills: 2.7659574468085104\nSunny_pills: 1.1702127659574468\nTotal_cost: 6.276595744680851\nZ1_grams: 5.0\nD3_grams: 10.0\n\n",
+        "returncode": 0,
+        "generation_tokens": 2638,
+        "stratum": "suboptimal",
+        "deterministic": {
+          "score": 8.586626139876682,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "parsed_value": 6.276595744680851,
+          "ground_truth": 7.0,
+          "gap_term": 3.5866261398766826,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 7.5,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a feasible LP solution meeting Z1=5g and D3=10g exactly with nonnegative decision variables. The reported cost (6.2766) is consistent with the LP relaxation optimum at the intersection of the active constraints. However, it does not match the provided ground-truth value (7.0), which corresponds to an integer-pill solution (e.g., 4 Zodiac and 1 Sunny or 7 Zodiac). Likely the mismatch is due to allowing fractional pills in the LP solution while the ground truth assumes integrality.",
+          "tokens": 2607
+        },
+        {
+          "repeat": 2,
+          "score": 6.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "The code executed and produced a complete LP solution with nutrient constraints met exactly (Z1=5.0, D3=10.0). However, it uses fractional pills, giving a cost of 6.2766, which does not match the ground-truth 7.0 that corresponds to the integer-pill optimum (e.g., 4 Zodiac and 1 Sunny). Thus, while feasible for a continuous LP, it does not match the expected integer result.",
+          "tokens": 3549
+        },
+        {
+          "repeat": 3,
+          "score": 7.8,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a feasible LP solution: Zodiac≈2.766, Sunny≈1.170 with Z1=5.0 and D3=10.0, satisfying constraints exactly. The computed minimum cost is 6.2766, which is plausible and lower than the ground-truth 7.0 (likely due to integrality assumptions in the ground truth). Since 6.2766 ≠ 7.0 within tolerance, it does not match the provided ground truth.",
+          "tokens": 2850
+        },
+        {
+          "repeat": 4,
+          "score": 8.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a feasible LP solution: Z1 and D3 requirements are exactly met with nonnegative variables, and the reported cost (6.2766) is consistent with the continuous LP optimum at the intersection of constraints. However, the result uses fractional pills and does not match the provided ground-truth value 7.0 (likely the integer optimal cost), so matches_ground_truth is false.",
+          "tokens": 2767
+        },
+        {
+          "repeat": 5,
+          "score": 6.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a feasible LP solution meeting Z1 and D3 requirements with nonnegative variables. Reported cost 6.2766 is consistent with the continuous relaxation optimum. However, it does not match the ground-truth 7.0, which corresponds to integer pill counts; the solution did not enforce integrality, leading to a mismatch.",
+          "tokens": 2885
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          7.5,
+          6.0,
+          7.8,
+          8.0,
+          6.0
+        ],
+        "mean_score": 7.06,
+        "sd_score": 0.88,
+        "score_range": 2.0,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 8.586626139876682
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_064",
+        "problem_index": 64,
+        "stratum": "suboptimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_069",
+        "problem_index": 69,
+        "problem_description": "A recycling company collects recycling from neighborhoods using small and large bins. A small bin requires 2 workers while a large bin requires 5 workers. A small bin can hold 25 units of recycling material and a large bin can hold 60 units of recycling material. The company has available 100 workers. Because most people don't recycle, the number of small bins must be three times the number of large bins. In addition, there must be at least 10 small bins and 4 large bins. How many of each bin type should be used to maximize the total amount of recycling material that can be collected?",
+        "ground_truth": "1215.0",
+        "code": "import sys, subprocess\n\ntry:\n    import pulp\nexcept ImportError:\n    subprocess.check_call([sys.executable, \"-m\", \"pip\", \"install\", \"pulp\", \"--quiet\"])\n    import pulp\n\nprob = pulp.LpProblem(\"Recycling_Bins\", pulp.LpMaximize)\n\nS = pulp.LpVariable('Small', lowBound=0, cat='Integer')\nL = pulp.LpVariable('Large', lowBound=0, cat='Integer')\n\nprob += 25 * S + 60 * L\n\nprob += 2 * S + 5 * L <= 100\nprob += S == 3 * L\nprob += S >= 10\nprob += L >= 4\n\nprob.solve(pulp.PULP_CBC_CMD(msg=False))\n\nS_val = int(pulp.value(S))\nL_val = int(pulp.value(L))\ntotal_material = 25 * S_val + 60 * L_val\nworkers_used = 2 * S_val + 5 * L_val\n\nprint(f\"Status: {pulp.LpStatus[prob.status]}\")\nprint(f\"Small bins: {S_val}\")\nprint(f\"Large bins: {L_val}\")\nprint(f\"Total material collected: {total_material}\")\nprint(f\"Workers used: {workers_used}\")",
+        "execution_trace": "Status: Optimal\nSmall bins: 27\nLarge bins: 9\nTotal material collected: 1215\nWorkers used: 99\n\n",
+        "returncode": 0,
+        "generation_tokens": 1636,
+        "stratum": "suboptimal",
+        "deterministic": {
+          "score": 5.325925925928949,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "parsed_value": 99.0,
+          "ground_truth": 1215.0,
+          "gap_term": 0.32592592592894976,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Execution succeeded with an optimal solution. Small=27 and Large=9 satisfy S=3L, meet lower bounds (S>=10, L>=4), and use 99<=100 workers. Objective is maximized: with S=3L, total material is 135x for L=x; x must be integer with 11x<=100, so x=9 is maximal, yielding 1215, which matches the ground-truth.",
+          "tokens": 1253
+        },
+        {
+          "repeat": 2,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported optimal solution. Solution (27 small, 9 large) satisfies all constraints: s=3l, minimums (s>=10, l>=4), and workers used 99<=100. Objective value 1215 matches the ground-truth exactly.",
+          "tokens": 1218
+        },
+        {
+          "repeat": 3,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported an optimal, feasible solution: 27 small and 9 large bins (S=3L, S>=10, L>=4), using 99<=100 workers. Total material collected is 1215, which matches the ground-truth. With S=3L, workers = 11L, so L<=9; choosing L=9 maximizes material (135L) under constraints, confirming optimality.",
+          "tokens": 1571
+        },
+        {
+          "repeat": 4,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported an optimal, feasible solution: 27 small and 9 large bins. Constraints satisfied: s=3l (27=3*9), minimums met (s>=10, l>=4), workers used 99<=100. Objective value 1215 matches computation (25*27+60*9) and the ground truth. Given 2s+5l<=100 with s=3l implies 11l<=100 -> l<=9, maximizing l gives l=9, confirming optimality.",
+          "tokens": 1271
+        },
+        {
+          "repeat": 5,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and returned an optimal, feasible solution. Constraints satisfied: 27=3*9 (small-to-large ratio), workers used 99<=100, and minimums met (small>=10, large>=4). Objective value 1215 matches the ground truth exactly. Given 2S+5L<=100 with S=3L implies 11L<=100, so L<=9; choosing L=9 (S=27) is optimal.",
+          "tokens": 1384
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "mean_score": 10.0,
+        "sd_score": 0.0,
+        "score_range": 0.0,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 5.325925925928949
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false
+        },
+        "trace_id": "nlp4lp_069",
+        "problem_index": 69,
+        "stratum": "suboptimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_073",
+        "problem_index": 73,
+        "problem_description": "A village hosts a banquet and provides bike and car transportation for everyone. A bike can take 3 people while a car can take 5 people. Since cars are more expensive, at most 40% of the vehicles can be cars. If the village needs to transport at least 500 people, how many of each vehicle should be used to minimize the total number of bikes needed?",
+        "ground_truth": "80.0",
+        "code": "import pulp\n\n# Phase 1: Minimize number of bikes\nprob1 = pulp.LpProblem(\"BanquetTransport_MinBikes\", pulp.LpMinimize)\nB1 = pulp.LpVariable('B', lowBound=0, cat='Integer')\nC1 = pulp.LpVariable('C', lowBound=0, cat='Integer')\nprob1 += B1\nprob1 += 3*B1 + 5*C1 >= 500\nprob1 += 3*C1 <= 2*B1\nprob1.solve(pulp.PULP_CBC_CMD(msg=False))\nB_opt = int(pulp.value(B1))\n\n# Phase 2: Given minimal bikes, minimize cars\nprob2 = pulp.LpProblem(\"BanquetTransport_MinCarsGivenBikes\", pulp.LpMinimize)\nB2 = pulp.LpVariable('B_fixed', lowBound=B_opt, upBound=B_opt, cat='Integer')\nC2 = pulp.LpVariable('C', lowBound=0, cat='Integer')\nprob2 += C2\nprob2 += 3*B2 + 5*C2 >= 500\nprob2 += 3*C2 <= 2*B2\nprob2.solve(pulp.PULP_CBC_CMD(msg=False))\n\nB_final = int(pulp.value(B2))\nC_final = int(pulp.value(C2))\ntotal_vehicles = B_final + C_final\ntotal_people = 3*B_final + 5*C_final\ncar_share = 100.0 * C_final / total_vehicles if total_vehicles > 0 else 0.0\n\nprint(\"Optimal number of bikes:\", B_final)\nprint(\"Optimal number of cars:\", C_final)\nprint(\"Total vehicles:\", total_vehicles)\nprint(\"Total capacity (people):\", total_people)\nprint(\"Car share (%):\", round(car_share, 2))",
+        "execution_trace": "Optimal number of bikes: 80\nOptimal number of cars: 52\nTotal vehicles: 132\nTotal capacity (people): 500\nCar share (%): 39.39\n\n",
+        "returncode": 0,
+        "generation_tokens": 3698,
+        "stratum": "suboptimal",
+        "deterministic": {
+          "score": 6.9695000000253815,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "parsed_value": 39.39,
+          "ground_truth": 80.0,
+          "gap_term": 1.9695000000253815,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a feasible solution: 80 bikes and 52 cars transport exactly 500 people, with cars at 39.39% of vehicles (<= 40%). The objective is to minimize bikes; 79 bikes cannot meet capacity even with the maximum allowed cars, so 80 is minimal. The reported 80 matches the ground-truth.",
+          "tokens": 2477
+        },
+        {
+          "repeat": 2,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a feasible solution: 80 bikes and 52 cars transport exactly 500 people with car share 52/132 ≈ 39.39% ≤ 40%. Objective (minimize bikes) is achieved: with the 40% cap, c ≤ (2/3)b, so at b=79 the maximum cars is 52, yielding capacity 3*79+5*52=497 < 500; thus b must be at least 80. The reported 80 matches the ground-truth answer.",
+          "tokens": 2259
+        },
+        {
+          "repeat": 3,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a feasible solution. Capacity is exactly 500 (≥500) and car share is ~39.39% (≤40%). The objective (minimize bikes) is achieved with 80 bikes, which matches the ground-truth. Cars = 52 is feasible (and not unique), but does not affect the optimal bike count.",
+          "tokens": 1836
+        },
+        {
+          "repeat": 4,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a clear solution: bikes=80, cars=52, total capacity=500, car share=39.39%. All constraints are satisfied (capacity >= 500, car share <= 40%). Optimality is justified: with b=79 and c limited to floor(2/3*79)=52, capacity would be 497<500, so 80 bikes is minimal. The reported bike count matches the ground truth (80.0).",
+          "tokens": 1605
+        },
+        {
+          "repeat": 5,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and returned a feasible solution: 80 bikes and 52 cars provide capacity 500 with car share 39.39% ≤ 40%. The primary objective (minimize bikes) is achieved, and the reported bikes match the ground-truth value.",
+          "tokens": 2458
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "mean_score": 10.0,
+        "sd_score": 0.0,
+        "score_range": 0.0,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 6.9695000000253815
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false
+        },
+        "trace_id": "nlp4lp_073",
+        "problem_index": 73,
+        "stratum": "suboptimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_081",
+        "problem_index": 81,
+        "problem_description": "A construction company in the tropics uses cows and elephants to carry bricks. A cow can carry 20 bricks on its back while an elephant can carry 50 bricks on its back. To avoid having elephants create too much traffic, the number of elephant cannot exceed the number of cows. In addition, there can be at most twice the number of cows as elephants. If the company needs to transport at least 1000 bricks, find the minimum number of animals, cows and elephants, that can be used..",
+        "ground_truth": "29.0",
+        "code": "import pulp\n\nprob = pulp.LpProblem(\"BricksTransport\", pulp.LpMinimize)\n\ncows = pulp.LpVariable('cows', lowBound=0, cat=pulp.LpInteger)\nelephants = pulp.LpVariable('elephants', lowBound=0, cat=pulp.LpInteger)\n\nprob += cows + elephants\n\nprob += 20 * cows + 50 * elephants >= 1000\nprob += elephants <= cows\nprob += cows <= 2 * elephants\n\nprob.solve(pulp.PULP_CBC_CMD(msg=False))\n\ncows_val = int(pulp.value(cows))\nelephants_val = int(pulp.value(elephants))\ntotal_animals = cows_val + elephants_val\ntotal_bricks = 20 * cows_val + 50 * elephants_val\n\nprint(\"Status:\", pulp.LpStatus[prob.status])\nprint(\"Cows:\", cows_val)\nprint(\"Elephants:\", elephants_val)\nprint(\"Total animals:\", total_animals)\nprint(\"Total bricks carried:\", total_bricks)",
+        "execution_trace": "Status: Optimal\nCows: 15\nElephants: 14\nTotal animals: 29\nTotal bricks carried: 1000\n\n",
+        "returncode": 0,
+        "generation_tokens": 2201,
+        "stratum": "suboptimal",
+        "deterministic": {
+          "score": 5.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "parsed_value": 1000.0,
+          "ground_truth": 29.0,
+          "gap_term": 0.0,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed successfully with Status: Optimal and returned C=15, E=14. Constraints hold (E ≤ C and C ≤ 2E; 20*15 + 50*14 = 1000 ≥ 1000). Total animals = 29. Minimality is confirmed (with 28 animals, max bricks is 560 + 30*14 = 980 < 1000). Matches the ground-truth of 29.0.",
+          "tokens": 1938
+        },
+        {
+          "repeat": 2,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported an optimal solution: Cows=15, Elephants=14, Total=29, Bricks=1000. Constraints hold (elephants <= cows: 14<=15; cows <= 2*elephants: 15<=28). This is minimal since N=28 cannot reach 1000 bricks, while N=29 can. Matches the ground-truth 29.0.",
+          "tokens": 1929
+        },
+        {
+          "repeat": 3,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed successfully and returned an optimal, feasible solution: 15 cows and 14 elephants carry 1000 bricks with 29 total animals, satisfying E ≤ C and C ≤ 2E. Total animals matches ground truth.",
+          "tokens": 2019
+        },
+        {
+          "repeat": 4,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Run succeeded with Status: Optimal. Solution c=15, e=14 satisfies e ≤ c ≤ 2e and 20c+50e=1000. Total animals = 29. Fewer animals (28) can carry at most 980 bricks, so 29 is minimal. Matches ground-truth 29.0.",
+          "tokens": 1594
+        },
+        {
+          "repeat": 5,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed to optimality and produced Cows=15, Elephants=14, Total animals=29, Total bricks=1000. Constraints satisfied: E<=C (14<=15), C<=2E (15<=28), and 20C+50E>=1000 (1000). The total animals matches the ground-truth 29.0, confirming optimality.",
+          "tokens": 2308
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "mean_score": 10.0,
+        "sd_score": 0.0,
+        "score_range": 0.0,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 5.0
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false
+        },
+        "trace_id": "nlp4lp_081",
+        "problem_index": 81,
+        "stratum": "suboptimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_092",
+        "problem_index": 92,
+        "problem_description": "A car manufacturing company makes hamburgers and chicken wraps for workers. They need to ensure workers get at least 2200 calories, 50 grams of protein, and 70 grams of carbs. One hamburger costs $6.5 and contains 800 calories, 19 grams of protein, and 20 grams of carbs. One chicken wrap costs $4 and contains 450 calories, 12 grams of protein, and 10 grams of carbs. What is the minimum cost diet that the company can provide for its workers?",
+        "ground_truth": "22.75",
+        "code": "import numpy as np\nfrom scipy.optimize import linprog\n\nc = np.array([6.5, 4.0])\nA_ub = np.array([\n    [-800, -450],\n    [-19, -12],\n    [-20, -10]\n])\nb_ub = np.array([-2200, -50, -70])\nbounds = [(0, None), (0, None)]\n\nres = linprog(c, A_ub=A_ub, b_ub=b_ub, bounds=bounds, method=\"highs\")\n\nif not res.success:\n    print(\"Optimization failed:\", res.message)\nelse:\n    x, y = res.x\n    cost = res.fun\n    calories = 800 * x + 450 * y\n    protein = 19 * x + 12 * y\n    carbs = 20 * x + 10 * y\n    print(f\"Hamburgers: {x:.6f}\")\n    print(f\"Chicken wraps: {y:.6f}\")\n    print(f\"Total cost: {cost:.2f}\")\n    print(f\"Calories: {calories:.2f}\")\n    print(f\"Protein: {protein:.2f}\")\n    print(f\"Carbs: {carbs:.2f}\")\n    print(f\"FINAL_ANSWER: {cost:.2f}\")",
+        "execution_trace": "Hamburgers: 3.500000\nChicken wraps: 0.000000\nTotal cost: 22.75\nCalories: 2800.00\nProtein: 66.50\nCarbs: 70.00\nFINAL_ANSWER: 22.75\n\n",
+        "returncode": 0,
+        "generation_tokens": 3035,
+        "stratum": "optimal",
+        "deterministic": {
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "parsed_value": 22.75,
+          "ground_truth": 22.75,
+          "gap_term": 4.0,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a feasible solution: 3.5 hamburgers, 0 wraps. All constraints met (2800 cal, 66.5g protein, 70g carbs). Reported minimum cost $22.75, matching the ground truth. Objective appears optimal given carbs are binding and hamburgers are cheaper per carb.",
+          "tokens": 1367
+        },
+        {
+          "repeat": 2,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a complete feasible solution: 3.5 hamburgers, 0 wraps meeting calories (2800>=2200), protein (66.5>=50), carbs (70>=70). Reported cost 22.75 matches the ground-truth within tolerance and is optimal since burgers are cheaper per carb and calorie, making x=3.5, y=0 the minimum-cost corner.",
+          "tokens": 1832
+        },
+        {
+          "repeat": 3,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a complete, feasible solution (3.5 hamburgers, 0 wraps) meeting all constraints: calories 2800 ≥ 2200, protein 66.5 ≥ 50, carbs 70 ≥ 70. Total cost is 22.75, which matches the ground-truth. Given hamburgers are cheaper per carb and calories, hitting the carb constraint with hamburgers minimizes cost, confirming optimality.",
+          "tokens": 1581
+        },
+        {
+          "repeat": 4,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a feasible solution: 3.5 hamburgers, 0 wraps. Constraints satisfied (Calories: 2800 ≥ 2200, Protein: 66.5 ≥ 50, Carbs: 70 ≥ 70). Total cost = 22.75 matches the ground-truth within tolerance, indicating optimality for this LP.",
+          "tokens": 2014
+        },
+        {
+          "repeat": 5,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a complete, feasible solution: 3.5 hamburgers and 0 wraps yield 2800 cal, 66.5 g protein, 70 g carbs, satisfying all minimums. Total cost $22.75 matches the ground truth exactly. The solution is plausibly optimal since hamburgers are cheaper per calorie and per carb than wraps, with the carb constraint binding at 3.5 burgers.",
+          "tokens": 1579
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "mean_score": 10.0,
+        "sd_score": 0.0,
+        "score_range": 0.0,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 10.0
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_092",
+        "problem_index": 92,
+        "stratum": "optimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_116",
+        "problem_index": 116,
+        "problem_description": "A electronics store sells premium desktops with more power as well as regular desktops for everyday use. Each premium desktop costs the store $2000 to make and yields a profit of $500. Each regular desktop costs the store $1000 to make and yields a profit of $300. The store sells at most 200 desktops each month and wants to spend at most $300000 on making the desktops. How many of each should be made and sold to maximize profit?",
+        "ground_truth": "80000.0",
+        "code": "import pulp\n\nprob = pulp.LpProblem(\"Desktop_Production\", pulp.LpMaximize)\n\npremium = pulp.LpVariable(\"premium\", lowBound=0, cat=\"Integer\")\nregular = pulp.LpVariable(\"regular\", lowBound=0, cat=\"Integer\")\n\nprob += 500 * premium + 300 * regular\n\nprob += premium + regular <= 200\nprob += 2000 * premium + 1000 * regular <= 300000\n\nprob.solve(pulp.PULP_CBC_CMD(msg=False))\n\nprint(\"Premium_desktops:\", int(premium.value()))\nprint(\"Regular_desktops:\", int(regular.value()))\nprint(\"Total_profit:\", int(pulp.value(prob.objective)))",
+        "execution_trace": "Premium_desktops: 100\nRegular_desktops: 100\nTotal_profit: 80000\n\n",
+        "returncode": 0,
+        "generation_tokens": 1804,
+        "stratum": "optimal",
+        "deterministic": {
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "parsed_value": 80000.0,
+          "ground_truth": 80000.0,
+          "gap_term": 4.0,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Executed successfully with a complete and feasible solution: 100 premium and 100 regular desktops satisfy both the 200-unit and $300,000 budget constraints. The total profit is $80,000, which matches the ground-truth optimum.",
+          "tokens": 1748
+        },
+        {
+          "repeat": 2,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a feasible solution: Premium=100, Regular=100 meets x+y<=200 and 2000x+1000y<=300000. Reported profit 80000 matches ground truth. Corner check confirms optimality: (150,0)->75000, (0,200)->60000, (100,100)->80000 is best.",
+          "tokens": 1455
+        },
+        {
+          "repeat": 3,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a complete, feasible, and optimal solution: 100 premium and 100 regular desktops. Constraints satisfied (200 units total; cost 300,000 <= 300,000). Reported profit 80,000 matches ground truth.",
+          "tokens": 1687
+        },
+        {
+          "repeat": 4,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and returned Premium=100 and Regular=100, satisfying constraints (200 units total, $300,000 cost). Reported profit $80,000 matches the ground truth and is optimal (both constraints bind at (100,100)).",
+          "tokens": 1430
+        },
+        {
+          "repeat": 5,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a feasible solution: 100 premium and 100 regular desktops satisfy both constraints (total units 200, cost $300,000) and yield profit $80,000. This matches the optimal LP corner solution and the provided ground-truth profit.",
+          "tokens": 1370
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "mean_score": 10.0,
+        "sd_score": 0.0,
+        "score_range": 0.0,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 10.0
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_116",
+        "problem_index": 116,
+        "stratum": "optimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_127",
+        "problem_index": 127,
+        "problem_description": "A student takes calcium pills and vitamin D pills one after the other. Each calcium pill takes 5 minutes to be effective while each vitamin D pill takes 6 minutes to be effective. Over a month, the student must take at least 130 pills of medication and at least 40 should be vitamin D pills because they enhance the absorption of calcium in the body. Since vitamin D is complimentary to calcium, the student must take more calcium pills than vitamin D pills. How many pills of each should the student take to minimize the total time it takes for the medication to be effective?",
+        "ground_truth": "0.0",
+        "code": "import pulp as pl\n\n# Define problem\nprob = pl.LpProblem(\"Pills_Optimization\", pl.LpMinimize)\n\n# Decision variables\nc = pl.LpVariable('calcium', lowBound=0, cat='Integer')\nv = pl.LpVariable('vitaminD', lowBound=0, cat='Integer')\n\n# Objective: minimize total time\nprob += 5 * c + 6 * v\n\n# Constraints\nprob += c + v >= 130\nprob += v >= 40\nprob += c - v >= 1  # more calcium than vitamin D\n\n# Solve\nprob.solve(pl.PULP_CBC_CMD(msg=False))\n\n# Output\nprint(\"Status:\", pl.LpStatus[prob.status])\nprint(\"Calcium pills:\", int(pl.value(c)))\nprint(\"Vitamin D pills:\", int(pl.value(v)))\nprint(\"Total pills:\", int(pl.value(c + v)))\nprint(\"Total time (minutes):\", int(pl.value(5 * c + 6 * v)))",
+        "execution_trace": "Status: Optimal\nCalcium pills: 90\nVitamin D pills: 40\nTotal pills: 130\nTotal time (minutes): 690\n\n",
+        "returncode": 0,
+        "generation_tokens": 1573,
+        "stratum": "suboptimal",
+        "deterministic": {
+          "score": 5.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "parsed_value": 690.0,
+          "ground_truth": 0.0,
+          "gap_term": 0.0,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 9.6,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Execution reported an optimal solution. The result C=90, V=40 satisfies all constraints (total pills=130, V>=40, C>V) and minimizes total time 5*C+6*V=690 given calcium is cheaper time-wise. The numeric ground-truth value provided (0.0) does not correspond to the problem's objective value, so a match is not expected.",
+          "tokens": 1750
+        },
+        {
+          "repeat": 2,
+          "score": 9.6,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and returned a complete, feasible solution: x=90 calcium, y=40 vitamin D, totaling 130 pills with 90>40 and y>=40. Objective 5*90+6*40=690 is minimal given vitamin D has higher time per pill; choosing the minimum allowed vitamin D (40) and the minimum total (130) yields the lowest time. Results are plausible and optimal. Ground-truth numeric provided (0.0) does not match the extracted final numeric answer (690), so matches_ground_truth=false.",
+          "tokens": 1652
+        },
+        {
+          "repeat": 3,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a complete, feasible, and optimal solution. Constraints satisfied: total pills 130 (>=130), vitamin D 40 (>=40), calcium 90 (>40). Objective minimized: with C + D = 130 and costs 5 vs 6, minimizing time means minimizing D to 40, giving total time 5*90 + 6*40 = 690. Ground-truth numeric value provided (0.0) does not match any single final numeric output here.",
+          "tokens": 2027
+        },
+        {
+          "repeat": 4,
+          "score": 9.5,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a complete, feasible, and optimal solution. With calcium=90 and vitamin D=40, all constraints are satisfied (total pills=130 ≥ 130, vitamin D=40 ≥ 40, and calcium > vitamin D). Objective 5*90 + 6*40 = 690 is minimal given calcium takes less time per pill than vitamin D. The reported numeric result does not match the provided ground-truth value (0.0), likely a placeholder.",
+          "tokens": 1895
+        },
+        {
+          "repeat": 5,
+          "score": 9.5,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and returned a feasible, clearly optimal solution: 90 calcium and 40 vitamin D pills (total 130), minimizing total time 5*C + 6*D by setting D at its lower bound and meeting C > D. All constraints (total >= 130, D >= 40, C > D) are satisfied. However, the extracted numeric result (690) does not match the provided ground truth 0.0.",
+          "tokens": 3295
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          9.6,
+          9.6,
+          10.0,
+          9.5,
+          9.5
+        ],
+        "mean_score": 9.64,
+        "sd_score": 0.18547236990991411,
+        "score_range": 0.5,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 5.0
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_127",
+        "problem_index": 127,
+        "stratum": "suboptimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_167",
+        "problem_index": 167,
+        "problem_description": "A company in the desert can transport goods to rural cities either by camel caravans or desert trucks. A camel caravan can deliver 50 units of goods per trip and takes 12 hours. A desert truck can deliver 150 units of goods per trip and takes 5 hours. However, due to the cost of fuel, the company prefers to have more camel caravans than desert trucks.  If the company needs to deliver 1500 units of goods, how many of each method of transportation should the company organize to minimize the total number of hours required?",
+        "ground_truth": "50.0",
+        "code": "import sys\nimport subprocess\n\ntry:\n    import pulp\nexcept ImportError:\n    subprocess.check_call([sys.executable, \"-m\", \"pip\", \"install\", \"pulp\", \"--quiet\"])\n    import pulp\n\nmodel = pulp.LpProblem(\"Desert_Transport_Optimization\", pulp.LpMinimize)\n\nC = pulp.LpVariable(\"Camels\", lowBound=0, cat=\"Integer\")\nT = pulp.LpVariable(\"Trucks\", lowBound=0, cat=\"Integer\")\n\nmodel += 12 * C + 5 * T\n\nmodel += 50 * C + 150 * T >= 1500\nmodel += C >= T + 1\n\nmodel.solve(pulp.PULP_CBC_CMD(msg=False))\n\ncamels = int(round(pulp.value(C)))\ntrucks = int(round(pulp.value(T)))\ntotal_hours = int(round(pulp.value(model.objective)))\ndelivered_units = int(round(50 * camels + 150 * trucks))\n\nprint(\"Camels:\", camels)\nprint(\"Trucks:\", trucks)\nprint(\"Total_hours:\", total_hours)\nprint(\"Delivered_units:\", delivered_units)",
+        "execution_trace": "Camels: 9\nTrucks: 7\nTotal_hours: 143\nDelivered_units: 1500\n\n",
+        "returncode": 0,
+        "generation_tokens": 1977,
+        "stratum": "suboptimal",
+        "deterministic": {
+          "score": 5.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "parsed_value": 1500.0,
+          "ground_truth": 50.0,
+          "gap_term": 0.0,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 9.5,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a complete, feasible solution: 9 camels and 7 trucks deliver exactly 1500 units with camels > trucks. Objective quality is strong: with C + 3T = 30 and C > T, minimizing 12C + 5T is equivalent to maximizing T subject to T <= 7, giving T=7, C=9 and total hours 143, which is optimal under the stated preference. The provided ground-truth value 50.0 does not correspond to any final numeric in the trace, so it does not match.",
+          "tokens": 2480
+        },
+        {
+          "repeat": 2,
+          "score": 9.4,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Execution succeeded and produced a feasible, clearly optimal plan: 9 camels and 7 trucks deliver exactly 1500 units with 143 total hours. Preference constraint (more camels than trucks) is satisfied (9 > 7). Optimality check: with 50x + 150y = 1500 and x > y, total hours H = 12x + 5y = 360 - 31y decreases with y; the largest feasible y is 7 (since x = 30 - 3y > y implies y ≤ 7), yielding x = 9 and H = 143, which matches the output. The provided ground-truth numeric value (50.0) does not correspond to the computed objective (143), so it does not match.",
+          "tokens": 2074
+        },
+        {
+          "repeat": 3,
+          "score": 9.7,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a feasible, optimal plan under the constraint C > T: 9 camels and 7 trucks deliver exactly 1500 units with minimal total hours 143. The reported ground-truth value (50.0) does not correspond to any output metric here, so it does not match.",
+          "tokens": 2553
+        },
+        {
+          "repeat": 4,
+          "score": 9.5,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a feasible, optimal solution: 9 camels and 7 trucks deliver 1500 units with total hours 12*9 + 5*7 = 143, satisfying the constraint C > T (preference for more camels). Given C + 3T = 30, total hours 12C + 5T = 360 - 31T is minimized by the largest T with C > T, i.e., T = 7, C = 9. Ground-truth numeric value 50.0 does not match the reported final metric (143), hence mismatch.",
+          "tokens": 1975
+        },
+        {
+          "repeat": 5,
+          "score": 8.5,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a feasible, clear solution: 9 camels and 7 trucks deliver exactly 1500 units, satisfy the preference (more camels than trucks), and yield total hours 143. For the strict c > t constraint, 9/7 is optimal (e.g., 9/8 gives 148 hours, 8/8 not allowed). However, the reported total (143) does not match the provided ground-truth numeric value 50.0.",
+          "tokens": 3741
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          9.5,
+          9.4,
+          9.7,
+          9.5,
+          8.5
+        ],
+        "mean_score": 9.32,
+        "sd_score": 0.42142615011410944,
+        "score_range": 1.1999999999999993,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 5.0
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_167",
+        "problem_index": 167,
+        "stratum": "suboptimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_191",
+        "problem_index": 191,
+        "problem_description": "A new fast food place makes wraps and platters. Each wrap requires 5 units of meat and 3 units of rice. Each platter requires 7 units of meant and 5 units of rice. While each wrap takes 10 minutes to make, each platter takes 8 minutes to make. The fast food place must use at least 3000 units of meat and 2500 units of rice. Since wraps are easier to eat on the go, at least 3 times as many wraps need to be made as platter. How many of each should the fast food place make to minimize the total production time?",
+        "ground_truth": "6785.714285714285",
+        "code": "from pulp import LpProblem, LpMinimize, LpVariable, LpInteger, lpSum, LpStatus, value, PULP_CBC_CMD\n\nprob = LpProblem(\"FastFood_Time_Minimization\", LpMinimize)\n\nw = LpVariable(\"wraps\", lowBound=0, cat=LpInteger)\np = LpVariable(\"platters\", lowBound=0, cat=LpInteger)\n\nprob += 10*w + 8*p\nprob += 5*w + 7*p >= 3000\nprob += 3*w + 5*p >= 2500\nprob += w - 3*p >= 0\n\nprob.solve(PULP_CBC_CMD(msg=0))\n\nwraps = int(round(w.value()))\nplatters = int(round(p.value()))\ntotal_time = int(round(value(prob.objective)))\n\nprint(\"Status:\", LpStatus[prob.status])\nprint(\"Wraps:\", wraps)\nprint(\"Platters:\", platters)\nprint(\"Minimum_total_time_minutes:\", total_time)",
+        "execution_trace": "Status: Optimal\nWraps: 537\nPlatters: 178\nMinimum_total_time_minutes: 6794\n\n",
+        "returncode": 0,
+        "generation_tokens": 4531,
+        "stratum": "suboptimal",
+        "deterministic": {
+          "score": 8.995115789473685,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "parsed_value": 6794.0,
+          "ground_truth": 6785.714285714285,
+          "gap_term": 3.995115789473685,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 7.8,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a feasible solution: Wraps=537, Platters=178 satisfy all constraints (meat, rice, and wraps >= 3*platters). Reported time 6794 min is close but does not match the continuous ground-truth optimum 6785.7143 min (off by ~8.286 min, ~0.12%). The result appears optimal for an integer formulation, but not for the continuous problem indicated by the ground truth.",
+          "tokens": 3434
+        },
+        {
+          "repeat": 2,
+          "score": 7.8,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a complete, feasible solution: wraps=537, platters=178 satisfy all constraints (meat, rice, and w >= 3p). Reported time is 6794 min. However, the ground-truth optimal (continuous) objective is 6785.7143, so the result is off by 8.2857, likely due to imposing integrality. Objective quality is close but does not match the provided optimum.",
+          "tokens": 3943
+        },
+        {
+          "repeat": 3,
+          "score": 7.8,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and returned a feasible solution satisfying all constraints (meat, rice, and wrap-to-platter ratio). However, the reported minimum time (6794) does not match the continuous LP ground-truth optimum (6785.7143). The solution appears to be an optimal integer solution near the LP optimum but is not the exact ground-truth value.",
+          "tokens": 3155
+        },
+        {
+          "repeat": 4,
+          "score": 7.6,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and returned a feasible solution: W=537, P=178, satisfying meat (3931>=3000), rice (2501>=2500), and W>=3P (537>=534). Reported time 6794 min is close but does not match the continuous ground-truth optimum 6785.7143 (|diff|≈8.286 > tol). Likely solved as an integer model; good feasibility and near-optimality, but not matching the provided optimum.",
+          "tokens": 2288
+        },
+        {
+          "repeat": 5,
+          "score": 7.5,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a feasible solution with all constraints satisfied (meat: 3931 ≥ 3000, rice: 2501 ≥ 2500, wraps ≥ 3×platters: 537 ≥ 534). Reported time 6794 is close but above the continuous optimum 6785.7143 by 8.2857 minutes, likely due to enforcing integrality. Outputs (variables and objective) are complete, but it does not match the provided ground-truth optimum.",
+          "tokens": 2416
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          7.8,
+          7.8,
+          7.8,
+          7.6,
+          7.5
+        ],
+        "mean_score": 7.7,
+        "sd_score": 0.12649110640673514,
+        "score_range": 0.2999999999999998,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 8.995115789473685
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_191",
+        "problem_index": 191,
+        "stratum": "suboptimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_194",
+        "problem_index": 194,
+        "problem_description": "A bubble tea shop sells mango and lychee bubble tea. Each mango bubble tea requires 4 units of mango juice and 8 units of tea. Each lychee bubble tea requires 6 units of lychee juice and 6 units of tea. The shop has available 2000 units of mango juice and 3000 units of lychee juice. At least 40% of the bubble teas made must be lychee flavored. However, mango bubble tea sells better and thus the number of mango bubble teas made must be large than the number of lychee bubble teas made. How many of each bubble tea flavor should be made to minimize the total amount of tea needed?",
+        "ground_truth": "0.0",
+        "code": "import pulp\n\n# Define problem\nprob = pulp.LpProblem(\"Bubble_Tea_Optimization\", pulp.LpMinimize)\n\n# Decision variables\nmango = pulp.LpVariable(\"mango\", lowBound=0, cat=\"Integer\")\nlychee = pulp.LpVariable(\"lychee\", lowBound=0, cat=\"Integer\")\n\n# Objective: minimize total tea used\nprob += 8 * mango + 6 * lychee\n\n# Constraints\nprob += 4 * mango <= 2000\nprob += 6 * lychee <= 3000\nprob += 3 * lychee - 2 * mango >= 0  # At least 40% lychee\nprob += mango - lychee >= 1          # Mango greater than lychee\n\n# Solve\nprob.solve(pulp.PULP_CBC_CMD(msg=False))\n\n# Results\nmango_val = int(pulp.value(mango))\nlychee_val = int(pulp.value(lychee))\ntea_used = 8 * mango_val + 6 * lychee_val\n\nprint(\"Mango bubble teas:\", mango_val)\nprint(\"Lychee bubble teas:\", lychee_val)\nprint(\"Total tea used:\", tea_used)",
+        "execution_trace": "Mango bubble teas: 3\nLychee bubble teas: 2\nTotal tea used: 36\n\n",
+        "returncode": 0,
+        "generation_tokens": 2846,
+        "stratum": "suboptimal",
+        "deterministic": {
+          "score": 5.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "parsed_value": 36.0,
+          "ground_truth": 0.0,
+          "gap_term": 0.0,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 8.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a clear solution: M=3, L=2, total tea=36. This satisfies all constraints (resource limits, at least 40% lychee, and mango count strictly greater than lychee). The solution is also the minimal among integer-feasible solutions. However, it does not match the provided ground-truth numeric value (0.0), which likely reflects a continuous relaxation with an infimum of 0 rather than an attained minimum.",
+          "tokens": 3054
+        },
+        {
+          "repeat": 2,
+          "score": 7.5,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Code executed and returned a complete, feasible solution: M=3, L=2 satisfies juice capacities, lychee share >=40% (2/5), and M > L (3>2). Total tea 36 is minimal among integer solutions. However, it does not match the provided ground truth (0.0), which reflects the continuous relaxation whose infimum is 0 due to the strict inequality M > L.",
+          "tokens": 2981
+        },
+        {
+          "repeat": 3,
+          "score": 7.5,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced Mango=3, Lychee=2, Total tea=36. All constraints are satisfied: juice limits respected, lychee share is exactly 40%, and mango count exceeds lychee. Among integer solutions, (3,2) is the smallest feasible pair and minimizes tea usage (36). However, the result does not match the provided ground-truth value 0.0.",
+          "tokens": 2656
+        },
+        {
+          "repeat": 4,
+          "score": 9.5,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and returned Mango=3, Lychee=2, using 36 units of tea. This solution satisfies all constraints: juice bounds (4*3<=2000, 6*2<=3000), lychee share at least 40% (2/5=40%), and mango strictly greater than lychee (3>2). Among integer solutions, (3,2) is the smallest feasible pair, hence minimizes tea usage. The numeric output (36) does not match the provided ground-truth 0.0.",
+          "tokens": 2557
+        },
+        {
+          "repeat": 5,
+          "score": 9.5,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "explanation": "Program executed and produced a complete, feasible solution: M=3, L=2 uses 12 mango juice and 12 lychee juice (within 2000/3000), satisfies L/(M+L)=40% and M>L, and minimizes tea (36) since smaller M fails constraints and any larger counts increase tea. Ground-truth value 0.0 does not match the extracted final numeric result (36).",
+          "tokens": 2727
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          8.0,
+          7.5,
+          7.5,
+          9.5,
+          9.5
+        ],
+        "mean_score": 8.4,
+        "sd_score": 0.916515138991168,
+        "score_range": 2.0,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": false,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 5.0
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_194",
+        "problem_index": 194,
+        "stratum": "suboptimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_202",
+        "problem_index": 202,
+        "problem_description": "A bakery makes fiber supplemented brownies and lemon squares. Each brownie requires 5 units of chocolate mix and 4 units of fiber. Each lemon square requires 7 units of lemon mix and 6 units of fiber. Lemon squares sell much faster and thus the number of lemon squares made must be larger than the number of brownies made. However, to please all customers, at least 40% of the items made must be brownies. If the bakery has 2500 units of chocolate mix and 3300 units of lemon mix, how many of each should be made to minimize the total amount of fiber needed?",
+        "ground_truth": "26.000000000000007",
+        "code": "import math\n\ndef solve_with_pulp():\n    try:\n        import pulp\n    except Exception:\n        return None\n    prob = pulp.LpProblem(\"Bakery_Minimize_Fiber\", pulp.LpMinimize)\n    B = pulp.LpVariable('brownies', lowBound=0, cat=pulp.LpInteger)\n    L = pulp.LpVariable('lemon_squares', lowBound=0, cat=pulp.LpInteger)\n    prob += 4*B + 6*L\n    prob += 5*B <= 2500\n    prob += 7*L <= 3300\n    prob += L >= B + 1\n    prob += 3*B - 2*L >= 0\n    solver = pulp.PULP_CBC_CMD(msg=False)\n    result_status = prob.solve(solver)\n    if pulp.LpStatus[result_status] != \"Optimal\":\n        return None\n    b_val = int(pulp.value(B))\n    l_val = int(pulp.value(L))\n    fiber = int(pulp.value(prob.objective))\n    return b_val, l_val, fiber\n\ndef solve_by_enumeration():\n    best = None\n    best_tuple = None\n    for B in range(0, 501):\n        if 5*B > 2500:\n            break\n        L_min = B + 1\n        L_max = min(471, math.floor(1.5 * B))\n        if L_min > L_max:\n            continue\n        L = L_min\n        if 7*L > 3300:\n            continue\n        fiber = 4*B + 6*L\n        if best is None or fiber < best:\n            best = fiber\n            best_tuple = (B, L, fiber)\n    return best_tuple\n\nres = solve_with_pulp()\nif res is None:\n    res = solve_by_enumeration()\n\nb_val, l_val, fiber = res\nprint(\"brownies:\", b_val)\nprint(\"lemon_squares:\", l_val)\nprint(\"total_fiber:\", fiber)",
+        "execution_trace": "brownies: 2\nlemon_squares: 3\ntotal_fiber: 26\n\n",
+        "returncode": 0,
+        "generation_tokens": 3919,
+        "stratum": "optimal",
+        "deterministic": {
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "parsed_value": 26.0,
+          "ground_truth": 26.000000000000007,
+          "gap_term": 3.999999999999999,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced brownies=2, lemon_squares=3 with total_fiber=26. Constraints satisfied: lemon squares > brownies (3>2), at least 40% brownies (2/5=40%), and resource limits respected (5*2<=2500, 7*3<=3300). Objective is minimized and the reported fiber matches the ground truth within tolerance.",
+          "tokens": 2131
+        },
+        {
+          "repeat": 2,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and returned brownies=2, lemon_squares=3 with total_fiber=26. Constraints satisfied: 5*2<=2500, 7*3<=3300, lemon_squares > brownies (3>2), and brownies share >=40% (2/5=0.4). Objective value matches the ground truth.",
+          "tokens": 2059
+        },
+        {
+          "repeat": 3,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced brownies=2, lemon_squares=3, total_fiber=26. Constraints satisfied: 5*2<=2500, 7*3<=3300, lemon squares > brownies (3>2), and brownies are at least 40% of total (2/5=40%). The objective (minimize 4B+6L) yields 26, matching the ground-truth within tolerance.",
+          "tokens": 2077
+        },
+        {
+          "repeat": 4,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and returned a feasible solution: brownies=2, lemon_squares=3 satisfy l > b, brownies are 40% of total (2/5), and resource limits are respected. The objective (total fiber=26) is minimal and matches the ground truth within tolerance.",
+          "tokens": 1918
+        },
+        {
+          "repeat": 5,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and returned brownies=2, lemon_squares=3, which satisfy L>B (3>2), 40% brownies (2/5=0.4), and resource limits (5*2<=2500, 7*3<=3300). Objective value total_fiber=26 matches the ground truth within tolerance.",
+          "tokens": 1737
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "mean_score": 10.0,
+        "sd_score": 0.0,
+        "score_range": 0.0,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 10.0
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_202",
+        "problem_index": 202,
+        "stratum": "optimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_217",
+        "problem_index": 217,
+        "problem_description": "An airport buys two types of vehicles, a 4-wheeler and 3-wheeler, to help move luggage. A 4-wheeler vehicle can move 60 luggage per day and produces 30 units of pollutant per day. A 3-wheeler vehicle can move 40 luggage per day and produces 15 units of pollutant per day. The airport needs to be able to move at least 1000 luggage per day. To avoid over-polluting the airport, they can produce at most 430 units of pollutant per day. How many of each vehicle should the airport buy to minimize the total number of vehicles needed.",
+        "ground_truth": "22.0",
+        "code": "import pulp\n\nprob = pulp.LpProblem(\"AirportVehicles\", pulp.LpMinimize)\n\nx = pulp.LpVariable('four_wheeler', lowBound=0, cat='Integer')\ny = pulp.LpVariable('three_wheeler', lowBound=0, cat='Integer')\n\nprob += x + y\nprob += 60 * x + 40 * y >= 1000\nprob += 30 * x + 15 * y <= 430\n\nprob.solve(pulp.PULP_CBC_CMD(msg=False))\n\nx_val = int(pulp.value(x))\ny_val = int(pulp.value(y))\nobj_val = int(pulp.value(prob.objective))\n\nprint(\"four_wheeler:\", x_val)\nprint(\"three_wheeler:\", y_val)\nprint(\"total_vehicles:\", obj_val)",
+        "execution_trace": "four_wheeler: 6\nthree_wheeler: 16\ntotal_vehicles: 22\n\n",
+        "returncode": 0,
+        "generation_tokens": 1999,
+        "stratum": "optimal",
+        "deterministic": {
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "parsed_value": 22.0,
+          "ground_truth": 22.0,
+          "gap_term": 4.0,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced four_wheeler=6, three_wheeler=16, total_vehicles=22. Feasibility holds: luggage moved = 6*60 + 16*40 = 1000 (>=1000), pollution = 6*30 + 16*15 = 420 (<=430). Objective optimality is consistent: LP relaxation gives ~21.33 vehicles; the minimal feasible integer sum is 22 (x=6,y=16). The reported total matches the ground truth (22.0).",
+          "tokens": 2046
+        },
+        {
+          "repeat": 2,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a feasible solution: 6 four-wheelers and 16 three-wheelers. Capacity = 60*6 + 40*16 = 1000 (>=1000). Pollution = 30*6 + 15*16 = 420 (<=430). Total vehicles = 22, matching the ground-truth optimum.",
+          "tokens": 1365
+        },
+        {
+          "repeat": 3,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and returned a complete, feasible solution: 6 four-wheelers and 16 three-wheelers. Constraints check: luggage 6*60+16*40=1000 (>=1000), pollution 6*30+16*15=420 (<=430). Total vehicles 22 is minimal and matches the ground-truth value.",
+          "tokens": 1941
+        },
+        {
+          "repeat": 4,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a feasible integer solution: 6 four-wheelers and 16 three-wheelers. Luggage: 60*6 + 40*16 = 1000 (>=1000). Pollution: 30*6 + 15*16 = 420 (<=430). Total vehicles = 22, which matches the ground truth and is optimal (21 vehicles is infeasible by simultaneous constraints).",
+          "tokens": 1443
+        },
+        {
+          "repeat": 5,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and returned four_wheeler=6, three_wheeler=16, total_vehicles=22. Constraints satisfied: luggage 60*6+40*16=1000 (>=1000), pollution 30*6+15*16=420 (<=430). Objective minimized: 22 is optimal and matches the ground truth 22.0.",
+          "tokens": 2970
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "mean_score": 10.0,
+        "sd_score": 0.0,
+        "score_range": 0.0,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 10.0
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_217",
+        "problem_index": 217,
+        "stratum": "optimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_226",
+        "problem_index": 226,
+        "problem_description": "There are two chemical reactions, chemical reaction A and chemical reaction B. Chemical reaction A requires 5 units of rare inert gas and 6 units of treated water to produce 10 units of a rare compound. Chemical reaction B requires 7 units of rare inert gas and 3 units of treater water to produce 8 units of a rare compound. There are 1000 units of the rare inert gas and 800 units of treated water available in the lab. How many reactions of each type should be done to maximize the amount of rare compound produced?",
+        "ground_truth": "1555.5555555555557",
+        "code": "import pulp\n\nprob = pulp.LpProblem(\"Maximize_Rare_Compound\", pulp.LpMaximize)\n\nx = pulp.LpVariable(\"Reactions_A\", lowBound=0)\ny = pulp.LpVariable(\"Reactions_B\", lowBound=0)\n\nprob += 10 * x + 8 * y\n\nprob += 5 * x + 7 * y <= 1000\nprob += 6 * x + 3 * y <= 800\n\nprob.solve(pulp.PULP_CBC_CMD(msg=False))\n\nxa = max(0.0, pulp.value(x))\nya = max(0.0, pulp.value(y))\nobjective = 10 * xa + 8 * ya\n\nprint(\"Status:\", pulp.LpStatus[prob.status])\nprint(f\"Reactions_A = {xa:.6f}\")\nprint(f\"Reactions_B = {ya:.6f}\")\nprint(f\"Total_Compound_Produced = {objective:.6f}\")",
+        "execution_trace": "Status: Optimal\nReactions_A = 96.296296\nReactions_B = 74.074074\nTotal_Compound_Produced = 1555.555552\n\n",
+        "returncode": 0,
+        "generation_tokens": 1816,
+        "stratum": "optimal",
+        "deterministic": {
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "parsed_value": 1555.555552,
+          "ground_truth": 1555.5555555555557,
+          "gap_term": 3.999999990857143,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported an optimal solution. The chosen reactions (A=96.296296, B=74.074074) exactly use the available resources (5A+7B=1000 gas, 6A+3B=800 water) and are nonnegative. The total produced (1555.555552) matches the ground truth within the specified tolerance.",
+          "tokens": 1877
+        },
+        {
+          "repeat": 2,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Execution succeeded with an optimal solution. The reaction counts use exactly the available resources (within rounding): gas 5*96.296296 + 7*74.074074 ≈ 1000 and water 6*96.296296 + 3*74.074074 ≈ 800. The reported objective 1555.555552 is within the tolerance of the ground-truth 1555.5555556.",
+          "tokens": 1379
+        },
+        {
+          "repeat": 3,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported an optimal solution. The solution is feasible: 5*96.296296 + 7*74.074074 = 1000 (gas) and 6*96.296296 + 3*74.074074 = 800 (water), both exactly meeting resource limits. The objective 10*96.296296 + 8*74.074074 = 1555.555552 matches the ground truth within 3.6e-06 (<= 1e-4). Results are complete and consistent.",
+          "tokens": 1660
+        },
+        {
+          "repeat": 4,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program ran to optimal completion, providing reaction counts and total output. Solution is feasible (uses ~1000 gas and ~800 water, nonnegative), and the reported total produced (1555.555552) matches the ground truth within tolerance. Results are consistent and optimal.",
+          "tokens": 1792
+        },
+        {
+          "repeat": 5,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported an optimal solution. The reaction counts use available gas and water to within numerical tolerance (≈1000 gas and 800 water), and the total compound produced (1555.555552) matches the ground truth within the 1e-4 tolerance. Solution is feasible and optimal.",
+          "tokens": 1288
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "mean_score": 10.0,
+        "sd_score": 0.0,
+        "score_range": 0.0,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 10.0
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_226",
+        "problem_index": 226,
+        "stratum": "optimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_227",
+        "problem_index": 227,
+        "problem_description": "A mining company has available a total of 100 square miles of mining sites and considering the use of two mining techniques: heap leaching and vat leaching. For each square mile of land, heap leaching technique can have a daily production of 3 tons of rare earth oxide per square miles but it also creates 8 tons of polluted wastewater and requires 10 extraction machines. On the other hand, vat leaching technique produces 5 tons of rare earth oxide per square miles per day while creating 17 tons of polluted wastewater and requiring 20 extraction machines. There are 100 machines available and due to environmental regulations, the amount of polluted wastewater must be at most 90 tons daily. Find the proportion of lands that use each mining technique in order to maximize the daily production of rare earth oxide.",
+        "ground_truth": "30.0",
+        "code": "import numpy as np\nimport math\n\ndef solve_with_scipy():\n    try:\n        from scipy.optimize import linprog\n    except Exception:\n        return None\n    c = [-3, -5]\n    A_ub = [\n        [10, 20],\n        [8, 17],\n        [1, 1],\n    ]\n    b_ub = [100, 90, 100]\n    bounds = [(0, None), (0, None)]\n    res = linprog(c, A_ub=A_ub, b_ub=b_ub, bounds=bounds, method=\"highs\")\n    if res.success:\n        return res.x\n    return None\n\ndef solve_manually():\n    A = np.array([\n        [10.0, 20.0],\n        [8.0, 17.0],\n        [1.0, 1.0],\n        [1.0, 0.0],\n        [0.0, 1.0],\n    ])\n    b = np.array([100.0, 90.0, 100.0, 0.0, 0.0])\n    candidates = []\n    n = len(b)\n    for i in range(n):\n        for j in range(i+1, n):\n            M = np.vstack([A[i], A[j]])\n            if abs(np.linalg.det(M)) < 1e-9:\n                continue\n            rhs = np.array([b[i], b[j]])\n            x = np.linalg.solve(M, rhs)\n            if np.all(A[:3] @ x <= b[:3] + 1e-9) and x[0] >= -1e-9 and x[1] >= -1e-9:\n                x = np.maximum(x, 0)\n                candidates.append(x)\n    if not candidates:\n        return np.array([0.0, 0.0])\n    best = None\n    best_val = -math.inf\n    for x in candidates:\n        val = 3*x[0] + 5*x[1]\n        if val > best_val:\n            best_val = val\n            best = x\n    return best\n\nx = solve_with_scipy()\nif x is None:\n    x = solve_manually()\n\nh, v = float(x[0]), float(x[1])\ntotal_used_land = h + v\nmachines_used = 10*h + 20*v\nwastewater = 8*h + 17*v\nproduction = 3*h + 5*v\nprop_used_heap = (h / total_used_land) if total_used_land > 1e-12 else 0.0\nprop_used_vat = (v / total_used_land) if total_used_land > 1e-12 else 0.0\nprop_total_heap = h / 100.0\nprop_total_vat = v / 100.0\n\nprint(\"Optimal allocation (square miles):\")\nprint(f\"  Heap leaching: {h:.6f}\")\nprint(f\"  Vat leaching:  {v:.6f}\")\nprint(f\"Total land used: {total_used_land:.6f} of 100.000000\")\nprint(\"Proportions of used land:\")\nprint(f\"  Heap: {prop_used_heap:.6f}\")\nprint(f\"  Vat:  {prop_used_vat:.6f}\")\nprint(\"Proportions of total available land:\")\nprint(f\"  Heap: {prop_total_heap:.6f}\")\nprint(f\"  Vat:  {prop_total_vat:.6f}\")\nprint(f\"Machines used: {machines_used:.6f} of 100.000000\")\nprint(f\"Wastewater: {wastewater:.6f} of 90.000000\")\nprint(f\"Max daily production (tons): {production:.6f}\")",
+        "execution_trace": "Optimal allocation (square miles):\n  Heap leaching: 10.000000\n  Vat leaching:  0.000000\nTotal land used: 10.000000 of 100.000000\nProportions of used land:\n  Heap: 1.000000\n  Vat:  0.000000\nProportions of total available land:\n  Heap: 0.100000\n  Vat:  0.000000\nMachines used: 100.000000 of 100.000000\nWastewater: 80.000000 of 90.000000\nMax daily production (tons): 30.000000\n\n",
+        "returncode": 0,
+        "generation_tokens": 4582,
+        "stratum": "optimal",
+        "deterministic": {
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "parsed_value": 30.0,
+          "ground_truth": 30.0,
+          "gap_term": 4.0,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed successfully and reported a feasible, clearly optimal solution: 10 sq mi heap, 0 vat. Constraints satisfied (land used 10 ≤ 100, machines 100/100, wastewater 80 ≤ 90). Objective value 30.0 matches the ground truth.",
+          "tokens": 1943
+        },
+        {
+          "repeat": 2,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a complete, feasible solution. Allocation x=10 (heap), y=0 (vat) satisfies machines (100/100), wastewater (80<=90), and land (10<=100). Objective value 30.0 matches the ground truth exactly. Given heap is more efficient per machine and per wastewater than vat, the solution is also optimal.",
+          "tokens": 1768
+        },
+        {
+          "repeat": 3,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a clear optimal allocation: 10 sq mi heap, 0 sq mi vat. All constraints satisfied (machines: 100/100, wastewater: 80/90, land: 10/100). Reported proportions are consistent (heap uses 10% of total land; vat 0%). Objective value 30.0 matches ground truth exactly.",
+          "tokens": 2346
+        },
+        {
+          "repeat": 4,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a clear, feasible solution: 10 sq mi heap, 0 sq mi vat. All constraints satisfied (machines 100/100, wastewater 80/90, land 10/100). Objective value 30.0 matches ground truth exactly. Results are complete with proportions reported.",
+          "tokens": 2076
+        },
+        {
+          "repeat": 5,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a complete, feasible solution: 10 sq mi heap, 0 sq mi vat. Constraints satisfied (machines 100/100, wastewater 80/90, land 10/100). Reported production 30.0 tons/day matches ground-truth. Proportions over total land: heap 0.10, vat 0.00. Solution is optimal given higher production per machine and lower wastewater per machine for heap.",
+          "tokens": 2426
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "mean_score": 10.0,
+        "sd_score": 0.0,
+        "score_range": 0.0,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 10.0
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_227",
+        "problem_index": 227,
+        "stratum": "optimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_001",
+        "problem_index": 1,
+        "problem_description": "Mrs. Watson wants to invest in the real-estate market and has a total budget of at most $760000. She has two choices which include condos and detached houses. Each dollar invested in condos yields a $0.50 profit and each dollar invested in detached houses yields a $1 profit. A minimum of 20% of all money invested must be in condos, and at least $20000 must be in detached houses. Formulate an LP that can be used to maximize total profit earned from Mrs. Watson's investment.",
+        "ground_truth": "684000.0",
+        "code": "import pulp\n\nprob = pulp.LpProblem(\"MrsWatsonInvestment\", pulp.LpMaximize)\n\nC = pulp.LpVariable('Condos', lowBound=0)\nD = pulp.LpVariable('DetachedHouses', lowBound=20000)\n\nprob += 0.5 * C + 1.0 * D\n\nprob += C + D <= 760000\nprob += C >= 0.25 * D\n\nprob.solve(pulp.PULP_CBC_CMD(msg=False))\n\nprint(\"Status:\", pulp.LpStatus[prob.status])\nprint(\"Optimal investment in condos:\", round(pulp.value(C), 2))\nprint(\"Optimal investment in detached houses:\", round(pulp.value(D), 2))\nprint(\"Maximum total profit:\", round(pulp.value(prob.objective), 2))",
+        "execution_trace": "Status: Optimal\nOptimal investment in condos: 152000.0\nOptimal investment in detached houses: 608000.0\nMaximum total profit: 684000.0\n\n",
+        "returncode": 0,
+        "generation_tokens": 1584,
+        "stratum": "optimal",
+        "deterministic": {
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "parsed_value": 684000.0,
+          "ground_truth": 684000.0,
+          "gap_term": 4.0,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Execution succeeded with an optimal solution. Budget fully utilized (152k condos, 608k houses). Constraints satisfied: condos are exactly 20% of total, houses >= 20k. Profit computed as 684,000, matching the ground truth.",
+          "tokens": 1397
+        },
+        {
+          "repeat": 2,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed successfully and found an optimal solution. The investments sum to the budget (152000 + 608000 = 760000), meet the 20% condo minimum (152000/760000 = 0.2) and the detached minimum (608000 ≥ 20000). The profit 684000 matches the ground truth exactly.",
+          "tokens": 1543
+        },
+        {
+          "repeat": 3,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and found an optimal solution. Investments (condos=152000, houses=608000) satisfy all constraints: total <= 760000, condos >= 20% of total (152000), houses >= 20000. Objective value computed as 0.5*152000 + 1*608000 = 684000 matches the ground-truth exactly.",
+          "tokens": 1486
+        },
+        {
+          "repeat": 4,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Optimization ran to optimality. Investments: condos = 152000, detached = 608000, totaling the 760000 budget. Condo share is exactly 20%, detached is well above 20000, so all constraints are satisfied. Reported maximum profit 684000.0 matches the ground-truth within tolerance.",
+          "tokens": 1283
+        },
+        {
+          "repeat": 5,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed successfully and reported an optimal solution. The investments (condos: 152000, detached: 608000) satisfy all constraints (budget cap, >=20% in condos, >=20000 in detached). The computed maximum profit 684000.0 is feasible and matches the ground-truth exactly.",
+          "tokens": 1345
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "mean_score": 10.0,
+        "sd_score": 0.0,
+        "score_range": 0.0,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 10.0
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_001",
+        "problem_index": 1,
+        "stratum": "optimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_002",
+        "problem_index": 2,
+        "problem_description": "A grocery store wants to liquidate its stock of 10 apples, 20 bananas, and 80 grapes. Given past experience, the store knows that they can propose a banana-haters package with 6 apples and 30 grapes and that this package will bring a profit of six euros. Similarly, they can prepare a combo package with 5 apples, 6 bananas, and 20 grapes, yielding a profit of seven euros. They know they can sell any quantity of these two packages within the availability of its stock. What quantity of each package, banana-haters packages and combo packages, should the store prepare to maximize net profit?",
+        "ground_truth": "14.0",
+        "code": "import pulp as pl\n\n# Define problem\nprob = pl.LpProblem(\"grocery_packaging\", pl.LpMaximize)\n\n# Variables\nbanana_haters = pl.LpVariable(\"banana_haters\", lowBound=0, cat=pl.LpInteger)\ncombo = pl.LpVariable(\"combo\", lowBound=0, cat=pl.LpInteger)\n\n# Objective\nprob += 6 * banana_haters + 7 * combo\n\n# Constraints\nprob += 6 * banana_haters + 5 * combo <= 10\nprob += 6 * combo <= 20\nprob += 30 * banana_haters + 20 * combo <= 80\n\n# Solve\nprob.solve(pl.PULP_CBC_CMD(msg=False))\n\n# Output\nprint(\"Status:\", pl.LpStatus[prob.status])\nprint(\"banana_haters:\", int(pl.value(banana_haters)))\nprint(\"combo:\", int(pl.value(combo)))\nprint(\"max_profit:\", float(pl.value(prob.objective)))",
+        "execution_trace": "Status: Optimal\nbanana_haters: 0\ncombo: 2\nmax_profit: 14.0\n\n",
+        "returncode": 0,
+        "generation_tokens": 1774,
+        "stratum": "optimal",
+        "deterministic": {
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "parsed_value": 14.0,
+          "ground_truth": 14.0,
+          "gap_term": 4.0,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported Status: Optimal with banana_haters=0, combo=2, max_profit=14.0. This solution is feasible (uses 10 apples, 12 bananas, 40 grapes within stock limits) and matches the provided ground-truth profit exactly. Given the apple constraint, no better integer combination exists, so constraints are satisfied and the objective is optimal.",
+          "tokens": 1495
+        },
+        {
+          "repeat": 2,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed successfully and reported an optimal, feasible solution: banana_haters=0, combo=2, max_profit=14.0. Resource usage fits stock (apples 10/10, bananas 12/20, grapes 40/80). The reported profit matches the ground-truth exactly.",
+          "tokens": 1288
+        },
+        {
+          "repeat": 3,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported an optimal solution: banana_haters=0, combo=2, max_profit=14.0. This uses 10 apples, 12 bananas, and 40 grapes, all within stock limits, so constraints are satisfied. Profit matches the ground truth (14.0). Given apples limit combos to 2 and banana-haters cannot be combined with combos due to apples, this is optimal.",
+          "tokens": 1118
+        },
+        {
+          "repeat": 4,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported an optimal solution: banana_haters=0, combo=2, max_profit=14. Resource use is feasible (apples 10/10, bananas 12/20, grapes 40/80) and variables are nonnegative. The objective matches the ground-truth profit of 14.0.",
+          "tokens": 1293
+        },
+        {
+          "repeat": 5,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported an optimal solution: banana_haters=0, combo=2, max_profit=14.0. This matches the ground-truth profit. Constraints are satisfied (apples used 10<=10, bananas 12<=20, grapes 40<=80). Solution is feasible and optimal.",
+          "tokens": 1673
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "mean_score": 10.0,
+        "sd_score": 0.0,
+        "score_range": 0.0,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 10.0
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_002",
+        "problem_index": 2,
+        "stratum": "optimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_003",
+        "problem_index": 3,
+        "problem_description": "A patient with a sore throat can drink two syrups, syrup 1 and syrup 2 for treatment. Per serving, syrup 1 delivers 0.5 units of medicine to the throat and 0.4 units of medicine to the lungs. Per serving, syrup 2 delivers 0.2 units of medicine to the throat and 0.5 units of medicine to the lungs. Furthermore, syrup 1 contains 0.5 units of sugar while syrup 2 contains 0.3 units of sugar per serving. The patient can get at most 5 units of medicine for the throat and at least 4 units of medicine to the lungs. How many servings of each should the patient take to minimize his sugar intake?",
+        "ground_truth": "2.4",
+        "code": "import numpy as np\nfrom scipy.optimize import linprog\n\nc = [0.5, 0.3]\nA_ub = [\n    [0.5, 0.2],\n    [-0.4, -0.5]\n]\nb_ub = [5, -4]\nbounds = [(0, None), (0, None)]\n\nres = linprog(c, A_ub=A_ub, b_ub=b_ub, bounds=bounds, method=\"highs\")\n\nif not res.success:\n    print(\"Optimization failed:\", res.message)\nelse:\n    x1 = 0.0 if abs(res.x[0]) < 1e-9 else res.x[0]\n    x2 = 0.0 if abs(res.x[1]) < 1e-9 else res.x[1]\n    sugar = 0.5 * x1 + 0.3 * x2\n    print(\"Servings of syrup 1:\", x1)\n    print(\"Servings of syrup 2:\", x2)\n    print(\"Minimum sugar intake:\", sugar)",
+        "execution_trace": "Servings of syrup 1: 0.0\nServings of syrup 2: 8.0\nMinimum sugar intake: 2.4\n\n",
+        "returncode": 0,
+        "generation_tokens": 2456,
+        "stratum": "optimal",
+        "deterministic": {
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "parsed_value": 2.4,
+          "ground_truth": 2.4,
+          "gap_term": 4.0,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a feasible solution: s1=0, s2=8. Constraints: throat 0.5*0+0.2*8=1.6≤5 and lungs 0.4*0+0.5*8=4≥4 satisfied. Objective sugar 0.5*0+0.3*8=2.4, matching ground truth. Syrup 2 has lower sugar per lung unit than syrup 1, confirming optimality.",
+          "tokens": 1932
+        },
+        {
+          "repeat": 2,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and returned x1=0, x2=8 with sugar 2.4. Constraints satisfied: throat 0.5*0+0.2*8=1.6<=5, lungs 0.4*0+0.5*8=4>=4, nonnegativity holds. Objective is optimal for these constraints, and the reported sugar matches the ground truth 2.4.",
+          "tokens": 2109
+        },
+        {
+          "repeat": 3,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and returned a complete, feasible solution: x1=0, x2=8. Constraints: throat 0.5*0+0.2*8=1.6<=5, lungs 0.4*0+0.5*8=4>=4. Objective sugar 0.5*0+0.3*8=2.4. This is optimal (syrup 2 is more sugar-efficient for lungs), and matches the ground-truth 2.4.",
+          "tokens": 1297
+        },
+        {
+          "repeat": 4,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and returned x1=0, x2=8 with sugar=2.4. Constraints hold: throat 0.5*0+0.2*8=1.6<=5, lungs 0.4*0+0.5*8=4>=4. Solution is optimal given sugar-per-lung efficiency; matches ground-truth objective.",
+          "tokens": 1588
+        },
+        {
+          "repeat": 5,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and produced a feasible solution: x1=0, x2=8 satisfies throat (<=5) and lungs (>=4) constraints. Objective (sugar) is minimized at 2.4, which matches the ground-truth value exactly.",
+          "tokens": 1628
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "mean_score": 10.0,
+        "sd_score": 0.0,
+        "score_range": 0.0,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 10.0
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_003",
+        "problem_index": 3,
+        "stratum": "optimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_005",
+        "problem_index": 5,
+        "problem_description": "A science show preforms two different demonstrations, demonstration 1 and demonstration 2. In demonstration 1, 10 units of mint and 20 units of the active ingredient is used to make 25 units of minty foam. In demonstration 2, 12 units of mint and 15 units of the active ingredient is used to make 18 units of minty foam. In addition, demonstration 1 creates 5 units of black tar while demonstration 2 creates 3 units of black tar. The show has available 120 units of mint and 100 units of active ingredients. If at most 50 units of black tar can be produced, how many of each demonstration should be done to maximize the amount of minty foam produced?",
+        "ground_truth": "125.0",
+        "code": "import pulp as pl\n\nmodel = pl.LpProblem(\"minty_foam_maximization\", pl.LpMaximize)\n\nx1 = pl.LpVariable('demo1', lowBound=0, cat='Integer')\nx2 = pl.LpVariable('demo2', lowBound=0, cat='Integer')\n\nmodel += 25 * x1 + 18 * x2\n\nmodel += 10 * x1 + 12 * x2 <= 120\nmodel += 20 * x1 + 15 * x2 <= 100\nmodel += 5 * x1 + 3 * x2 <= 50\n\nmodel.solve(pl.PULP_CBC_CMD(msg=False))\n\nprint(\"Status:\", pl.LpStatus[model.status])\nprint(\"demo1:\", int(pl.value(x1)))\nprint(\"demo2:\", int(pl.value(x2)))\nprint(\"Max_Minty_Foam:\", int(pl.value(25 * x1 + 18 * x2)))",
+        "execution_trace": "Status: Optimal\ndemo1: 5\ndemo2: 0\nMax_Minty_Foam: 125\n\n",
+        "returncode": 0,
+        "generation_tokens": 2431,
+        "stratum": "optimal",
+        "deterministic": {
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "parsed_value": 125.0,
+          "ground_truth": 125.0,
+          "gap_term": 4.0,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and returned an optimal, feasible solution: demo1=5, demo2=0, producing 125 foam. All resource and tar constraints are satisfied; result matches ground truth.",
+          "tokens": 1415
+        },
+        {
+          "repeat": 2,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Solver reported optimal. Solution demo1=5, demo2=0 is feasible: mint 50≤120, active 100≤100, tar 25≤50. Max foam = 125, matching ground truth. Given active is binding and demo1 yields more foam per active than demo2, this is optimal.",
+          "tokens": 1762
+        },
+        {
+          "repeat": 3,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Solver reported Optimal and returned demo1=5, demo2=0, yielding 125 minty foam. Constraints are satisfied: mint 50<=120, active 100<=100, tar 25<=50. Objective matches ground truth (125.0).",
+          "tokens": 1687
+        },
+        {
+          "repeat": 4,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Solver reported Optimal with demo1=5, demo2=0, yielding 125 minty foam. This satisfies all constraints (mint 50<=120, active 100<=100, tar 25<=50). Objective matches ground-truth 125.0.",
+          "tokens": 2071
+        },
+        {
+          "repeat": 5,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Solver returned an optimal solution: demo1=5, demo2=0, Max_Minty_Foam=125. Constraints satisfied: mint 50<=120, active 100<=100, tar 25<=50, nonnegativity holds. Objective is plausible and optimal since active is binding and demo1 yields more foam per unit active (1.25 vs 1.2). The max foam 125 matches the provided ground truth.",
+          "tokens": 2491
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "mean_score": 10.0,
+        "sd_score": 0.0,
+        "score_range": 0.0,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 10.0
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_005",
+        "problem_index": 5,
+        "stratum": "optimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_009",
+        "problem_index": 9,
+        "problem_description": "A doctor recommends that a man eat burgers and pizza in order to put on weight. Each burger contains 10 units of fat and 300 calories. Each slice of pizza contains 8 units of fat and 250 calories. The man must get at least 130 units of fat and 3000 calories. Further, each burger contains 12 units of cholesterol while each slice of pizza contains 10 units of cholesterol. Since burgers are slightly more expensive, the man decides to eat at least twice as many slices of pizza as burgers. How many of each should he eat to minimize his cholesterol intake?",
+        "ground_truth": "160.0",
+        "code": "import pulp\n\nprob = pulp.LpProblem(\"Minimize_Cholesterol\", pulp.LpMinimize)\n\nb = pulp.LpVariable(\"burgers\", lowBound=0, cat=\"Integer\")\np = pulp.LpVariable(\"pizza_slices\", lowBound=0, cat=\"Integer\")\n\nprob += 12 * b + 10 * p\n\nprob += 10 * b + 8 * p >= 130\nprob += 300 * b + 250 * p >= 3000\nprob += p >= 2 * b\n\nprob.solve(pulp.PULP_CBC_CMD(msg=False))\n\nprint(\"Status:\", pulp.LpStatus[prob.status])\nprint(\"Burgers:\", int(pulp.value(b)))\nprint(\"Pizza_slices:\", int(pulp.value(p)))\nprint(\"Total_cholesterol:\", int(12 * pulp.value(b) + 10 * pulp.value(p)))",
+        "execution_trace": "Status: Optimal\nBurgers: 5\nPizza_slices: 10\nTotal_cholesterol: 160\n\n",
+        "returncode": 0,
+        "generation_tokens": 2961,
+        "stratum": "optimal",
+        "deterministic": {
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "parsed_value": 160.0,
+          "ground_truth": 160.0,
+          "gap_term": 4.0,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported an optimal solution: Burgers=5, Pizza=10. Constraints check: fat=10*5+8*10=130 (>=130), calories=300*5+250*10=4000 (>=3000), and pizza >= 2*burgers holds (10 >= 10). Objective cholesterol=12*5+10*10=160, which matches the ground-truth value. Results are feasible and optimal.",
+          "tokens": 3233
+        },
+        {
+          "repeat": 2,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported an optimal solution: burgers=5, pizza=10. Constraints satisfied: fat 130>=130, calories 4000>=3000, and pizza >= 2*burgers (10>=10). Total cholesterol is 160, which matches the ground truth. Solution is integer and plausibly minimal.",
+          "tokens": 1413
+        },
+        {
+          "repeat": 3,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported an optimal integer solution: Burgers=5, Pizza=10. Constraints satisfied: fat=130≥130, calories=4000≥3000, and pizza≥2×burgers (10≥10). Objective cholesterol=12*5+10*10=160 matches the ground truth. Since cholesterol equals 0.04×calories, minimizing cholesterol is equivalent to minimizing calories; (5,10) achieves the minimal feasible calories among integer solutions, confirming optimality.",
+          "tokens": 3240
+        },
+        {
+          "repeat": 4,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported an optimal solution: Burgers=5, Pizza=10, Total_cholesterol=160. Constraints check: fat=10*5+8*10=130 (>=130), calories=300*5+250*10=4000 (>=3000), and pizza>=2*burgers: 10>=10. Optimality is plausible: setting P=2B minimizes cholesterol under that constraint; then fat requires B>=5, giving total cholesterol 12*5+10*10=160. Matches ground-truth 160.0.",
+          "tokens": 1593
+        },
+        {
+          "repeat": 5,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported an optimal solution. The solution (5 burgers, 10 pizza slices) satisfies all constraints (fat: 130 ≥ 130, calories: 4000 ≥ 3000, ratio: 10 ≥ 2*5) and yields total cholesterol 160, matching the ground-truth. Objective appears truly minimal.",
+          "tokens": 2376
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "mean_score": 10.0,
+        "sd_score": 0.0,
+        "score_range": 0.0,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 10.0
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_009",
+        "problem_index": 9,
+        "stratum": "optimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_010",
+        "problem_index": 10,
+        "problem_description": "A clinic makes batches of vitamin shots and pills. Each batch of vitamin shots requires 30 units of vitamin C and 40 units of vitamin D. Each batch of vitamin pills requires 50 units of vitamin C and 30 units of vitamin D. Since pills are more popular, the number of batches of vitamin pills must be larger than the number of batches of vitamin shots. Further, the clinic can make at most 10 batches of vitamin shots. The clinic has available 1200 units of vitamin C and 1500 units of vitamin D. If each batch of vitamin shots can supply 10 people and each batch of vitamin pills can supply 7 people, how many batches of each should be made to maximize the number of people that can be supplied?",
+        "ground_truth": "226.0",
+        "code": "import pulp\n\nmodel = pulp.LpProblem(\"Vitamin_Production\", pulp.LpMaximize)\n\nshots = pulp.LpVariable(\"shots\", lowBound=0, cat=pulp.LpInteger)\npills = pulp.LpVariable(\"pills\", lowBound=0, cat=pulp.LpInteger)\n\nmodel += 10 * shots + 7 * pills\n\nmodel += 30 * shots + 50 * pills <= 1200\nmodel += 40 * shots + 30 * pills <= 1500\nmodel += pills - shots >= 1\nmodel += shots <= 10\n\nsolver = pulp.PULP_CBC_CMD(msg=False)\nmodel.solve(solver)\n\nshots_val = int(pulp.value(shots))\npills_val = int(pulp.value(pills))\npeople = int(pulp.value(10 * shots + 7 * pills))\n\nprint(\"Status:\", pulp.LpStatus[model.status])\nprint(\"Batches of vitamin shots:\", shots_val)\nprint(\"Batches of vitamin pills:\", pills_val)\nprint(\"Maximum number of people supplied:\", people)",
+        "execution_trace": "Status: Optimal\nBatches of vitamin shots: 10\nBatches of vitamin pills: 18\nMaximum number of people supplied: 226\n\n",
+        "returncode": 0,
+        "generation_tokens": 2646,
+        "stratum": "optimal",
+        "deterministic": {
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "parsed_value": 226.0,
+          "ground_truth": 226.0,
+          "gap_term": 4.0,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and returned an optimal solution. Reported solution x=10 shots, y=18 pills satisfies constraints: 30*10+50*18=1200 (C binding), 40*10+30*18=940<=1500 (D), y>x (18>10), x<=10. Objective 10*10+7*18=226 matches the provided ground-truth maximum. Solution is feasible and optimal.",
+          "tokens": 1666
+        },
+        {
+          "repeat": 2,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported an optimal solution with s=10 shots and p=18 pills. All constraints are satisfied: p > s (18 > 10), s <= 10, vitamin C: 30*10 + 50*18 = 1200 <= 1200, vitamin D: 40*10 + 30*18 = 940 <= 1500. Objective value 10*10 + 7*18 = 226 matches the ground-truth. Solution is feasible, integral, and optimal.",
+          "tokens": 1683
+        },
+        {
+          "repeat": 3,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Execution succeeded with an optimal solution. Reported x=10 shots and y=18 pills satisfy all constraints: vitamin C 30*10+50*18=1200 (limit 1200), vitamin D 40*10+30*18=940 (≤1500), y>x (18>10), and x≤10. Objective value 10*10+7*18=226 matches the ground-truth maximum.",
+          "tokens": 2113
+        },
+        {
+          "repeat": 4,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported an optimal solution. Solution x=10 (shots), y=18 (pills) satisfies all constraints: 30x+50y=1200 (C limit), 40x+30y=940<=1500 (D limit), y>x (18>10), x<=10. Objective 10x+7y=226 equals the ground truth. Results are feasible, optimal, and complete.",
+          "tokens": 1408
+        },
+        {
+          "repeat": 5,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported optimal solution: shots=10, pills=18. Constraints satisfied: P>S (18>10), S<=10, vitamin C usage 30*10+50*18=1200 (at capacity), vitamin D usage 40*10+30*18=940<=1500. Objective 10*10+7*18=226 matches ground-truth 226.0.",
+          "tokens": 1596
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "mean_score": 10.0,
+        "sd_score": 0.0,
+        "score_range": 0.0,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 10.0
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_010",
+        "problem_index": 10,
+        "stratum": "optimal"
+      }
+    },
+    {
+      "trace": {
+        "trace_id": "nlp4lp_011",
+        "problem_index": 11,
+        "problem_description": "A doctor's office takes the  temperature of patients one by one either by using an electronic or regular thermometer. The electronic thermometer takes 3 minutes to make a reading while the regular thermometer takes 2 minutes to make a reading. Since the electronic thermometer is more accurate, at least twice as many patients should have their temperature checked by the electronic thermometer than the regular thermometer. Since the electronic thermometer has a cooldown time, at least 50 patients should have their temperature checked by a regular thermometer. If the office is open for 15000 minutes, maximize the number of patients whose temperature can be taken?",
+        "ground_truth": "5625.0",
+        "code": "import pulp as pl\n\nmodel = pl.LpProblem(\"Maximize_Patients\", pl.LpMaximize)\n\nx = pl.LpVariable(\"electronic\", lowBound=0, cat=pl.LpInteger)\ny = pl.LpVariable(\"regular\", lowBound=0, cat=pl.LpInteger)\n\nmodel += x + y\nmodel += 3 * x + 2 * y <= 15000\nmodel += x >= 2 * y\nmodel += y >= 50\n\nmodel.solve(pl.PULP_CBC_CMD(msg=False))\n\nx_val = int(pl.value(x))\ny_val = int(pl.value(y))\ntotal = x_val + y_val\ntime_used = 3 * x_val + 2 * y_val\n\nprint(\"Status:\", pl.LpStatus[model.status])\nprint(\"Electronic (x):\", x_val)\nprint(\"Regular (y):\", y_val)\nprint(\"Total patients:\", total)\nprint(\"Time used:\", time_used)\nprint(\"FINAL_ANSWER:\", total)",
+        "execution_trace": "Status: Optimal\nElectronic (x): 3750\nRegular (y): 1875\nTotal patients: 5625\nTime used: 15000\nFINAL_ANSWER: 5625\n\n",
+        "returncode": 0,
+        "generation_tokens": 1706,
+        "stratum": "optimal",
+        "deterministic": {
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "parsed_value": 5625.0,
+          "ground_truth": 5625.0,
+          "gap_term": 4.0,
+          "feasibility_source": "solver_status_or_heuristic",
+          "returncode": 0,
+          "timed_out": false
+        }
+      },
+      "grader_runs": [
+        {
+          "repeat": 1,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Executed successfully with an optimal solution. Feasibility checks: 3*3750 + 2*1875 = 15000 (time), 3750 >= 2*1875 (ratio), 1875 >= 50 (regular minimum). Total patients 5625 matches the ground truth.",
+          "tokens": 1489
+        },
+        {
+          "repeat": 2,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Execution succeeded with an optimal solution: x=3750, y=1875. All constraints satisfied: time 3x+2y=15000, ratio x>=2y holds at equality, and y>=50. Objective x+y=5625 uses full time and matches the ground-truth answer.",
+          "tokens": 1618
+        },
+        {
+          "repeat": 3,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Program executed and reported an optimal solution. The solution x=3750 (electronic) and y=1875 (regular) satisfies all constraints: 3x+2y=15000 (time limit), x>=2y (twice as many electronic as regular), and y>=50. The objective x+y=5625 is maximal and matches the ground truth.",
+          "tokens": 1311
+        },
+        {
+          "repeat": 4,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Run completed with an optimal solution. Solution x=3750 (electronic), y=1875 (regular) satisfies constraints: 3x+2y=15000 (time limit), x>=2y (3750>=3750), y>=50 (1875>=50). Objective x+y=5625 matches the provided ground-truth value 5625.0.",
+          "tokens": 1057
+        },
+        {
+          "repeat": 5,
+          "score": 10.0,
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "explanation": "Solver reported optimality with x=3750 and y=1875. Constraints satisfied: time 3*3750+2*1875=15000, ratio x>=2y holds at equality, and y>=50. Total patients 5625 matches the ground-truth answer.",
+          "tokens": 1294
+        }
+      ],
+      "summary": {
+        "n_repeats": 5,
+        "scores": [
+          10.0,
+          10.0,
+          10.0,
+          10.0,
+          10.0
+        ],
+        "mean_score": 10.0,
+        "sd_score": 0.0,
+        "score_range": 0.0,
+        "executed_agreement": 1.0,
+        "constraint_agreement": 1.0,
+        "gt_agreement": 1.0,
+        "llm_majority": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "deterministic": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true,
+          "returncode": 0,
+          "timed_out": false,
+          "score": 10.0
+        },
+        "llm_vs_det_agreement": {
+          "executed": true,
+          "constraint_satisfied": true,
+          "matches_ground_truth": true
+        },
+        "trace_id": "nlp4lp_011",
+        "problem_index": 11,
+        "stratum": "optimal"
+      }
+    }
+  ]
+}
