@@ -4,7 +4,7 @@ Code and archived results for *Pre-hoc Scaling via Monte Carlo Search over Reaso
 
 The released repository contains both **complete** benchmark runs and **partial** archived snapshots. Complete artifacts are used for table reconstruction where available; partial files are retained for transparency but should not be interpreted as full-benchmark results. In particular, the released GPT-5 and Gemini NLP4LP MCTS logs contain all 242 instances, whereas some baseline artifacts cover only subsets of the corresponding benchmark.
 
-Each released artifact below is labeled **complete**, **partial**, or **auxiliary**.
+Each released artifact below is labeled **complete**, **complete archived run**, **partial**, or **auxiliary**. Complete artifacts reconstruct the corresponding printed table row via `aggregate_results.py`. Complete archived runs contain every benchmark instance but do **not** reconstruct every printed column.
 
 ```bash
 pip install -r requirements.txt
@@ -13,22 +13,31 @@ python3 aggregate_results.py --agg best
 
 Revision-round scripts (Tables 4–5) live in `revision_experiments/`. Traces they produce go in `revision_experiments/traces/`.
 
-`aggregate_results.py` averages the archived problem-level fields `success_rate`, `avg_score`, `constraint_satisfaction_rate`, `ground_truth_match_rate`, `avg_tokens`, and `avg_time` / `avg_time_sec`. Optimality is the stored LLM `ground_truth_match_rate` flag.
+`aggregate_results.py` averages the archived problem-level fields `success_rate`, `avg_score`, `constraint_satisfaction_rate`, `ground_truth_match_rate`, `avg_tokens`, and `avg_time` / `avg_time_sec`. Optimality attainment is computed from the stored LLM `ground_truth_match_rate` field.
 
 ## File-to-experiment mapping
 
-**Datasets.** `_aq` on MCTS files means `all_questions.jsonl` (NLP4LP, 242), not NL4OPT. `baseline_aq.json` is a 100-problem one-shot.
+**Datasets.** For MCTS files, `_aq` denotes `all_questions.jsonl` (NLP4LP, 242 instances). Note that the root-level `baseline_aq.json` is instead a 100-problem one-shot archive; the separate `gemini/baseline_aq.json` contains 242 NLP4LP instances.
 
 ### Complete
+
+These files reconstruct the printed row (rounding only).
 
 | Table | Method | File | n |
 |-------|--------|------|---|
 | Table 2 | MCTS-RDP GPT-5 (search-then-apply) | `evaluationMCTS_results.json` | 242 |
 | Table 2 | MCTS-RDP Gemini (search-then-apply) | `gemini/evaluationMCTS_results_gem.json` | 242 |
 | Table 2 | One-shot Gemini | `gemini/baseline_aq.json` | 242 |
-| Table 2 | Optimus Gemini | `gemini/optimus_baseline_gem_results.json` | 242 |
-| Table 2 | CoT GPT-5 | `cot_results.json` | 242 |
 | Table 7 | Decomposition-only (w/o MCTS) | `ablation_no_mcts_results.json` | 242 |
+
+### Complete archived runs (not exact printed-row reconstruction)
+
+These files contain all 242 NLP4LP instances. They are retained as complete archives, but `aggregate_results.py` does **not** recover every printed Table 2 column.
+
+| Table | Method | File | n | Notes |
+|-------|--------|------|---|-------|
+| Table 2 | Optimus Gemini | `gemini/optimus_baseline_gem_results.json` | 242 | Success/reward are close; constraint, tokens, and time differ from the printed row (optimality 69.83% vs printed 69.42%) |
+| Table 2 | CoT GPT-5 | `cot_results.json` | 242 | Optimality matches 54.13%; success, reward, constraint, tokens, and time differ |
 
 ### Partial
 
