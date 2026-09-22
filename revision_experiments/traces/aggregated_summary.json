@@ -1,8 +1,8 @@
 {
   "aggregation": "best",
   "datasets": {
-    "NLP4LP_MCTS": {
-      "path": "/home/ubuntu/LLM_Planning/evaluationMCTS_results.json",
+    "NLP4LP_MCTS_STPA": {
+      "path": "evaluationMCTS_results.json",
       "protocol": {
         "block_size": 24,
         "search_per_block": 3,
@@ -45,8 +45,8 @@
         "time_mean": 46.89659414972578
       }
     },
-    "NL4OPT_MCTS": {
-      "path": "/home/ubuntu/LLM_Planning/evaluationMCTS_results_aq.json",
+    "NLP4LP_MCTS_full": {
+      "path": "evaluationMCTS_results_aq.json",
       "protocol": {
         "block_size": 24,
         "search_per_block": 3,
@@ -75,8 +75,8 @@
         "n": 0
       }
     },
-    "NLP4LP_MCTS_Gemini": {
-      "path": "/home/ubuntu/LLM_Planning/gemini/evaluationMCTS_results_gem.json",
+    "NLP4LP_MCTS_Gemini_STPA": {
+      "path": "gemini/evaluationMCTS_results_gem.json",
       "protocol": {
         "block_size": 24,
         "search_per_block": 3,
@@ -119,8 +119,8 @@
         "time_mean": 26.878705176440153
       }
     },
-    "NL4OPT_MCTS_Gemini": {
-      "path": "/home/ubuntu/LLM_Planning/gemini/evaluationMCTS_results_aq_gem.json",
+    "NLP4LP_MCTS_Gemini_full": {
+      "path": "gemini/evaluationMCTS_results_aq_gem.json",
       "protocol": {
         "block_size": 24,
         "search_per_block": 3,
@@ -149,8 +149,8 @@
         "n": 0
       }
     },
-    "Baseline_NLP4LP": {
-      "path": "/home/ubuntu/LLM_Planning/evaluation_results.json",
+    "NLP4LP_oneshot_first100": {
+      "path": "evaluation_results.json",
       "protocol": {
         "block_size": 24,
         "search_per_block": 3,
@@ -179,8 +179,8 @@
         "n": 0
       }
     },
-    "Baseline_NL4OPT": {
-      "path": "/home/ubuntu/LLM_Planning/baseline_aq.json",
+    "problems100_oneshot": {
+      "path": "baseline_aq.json",
       "protocol": {
         "block_size": 24,
         "search_per_block": 3,
@@ -210,7 +210,7 @@
       }
     },
     "CoT_NLP4LP": {
-      "path": "/home/ubuntu/LLM_Planning/cot_results.json",
+      "path": "cot_results.json",
       "protocol": {
         "block_size": 24,
         "search_per_block": 3,
@@ -240,7 +240,7 @@
       }
     },
     "Ablation_no_MCTS": {
-      "path": "/home/ubuntu/LLM_Planning/ablation_no_mcts_results.json",
+      "path": "ablation_no_mcts_results.json",
       "protocol": {
         "block_size": 24,
         "search_per_block": 3,
@@ -269,8 +269,38 @@
         "n": 0
       }
     },
-    "Wireless_MCTS": {
-      "path": "/home/ubuntu/LLM_Planning/evaluationMCTS_results_aq.json",
+    "problems100_Optimus": {
+      "path": "optimus_baseline_results.json",
+      "protocol": {
+        "block_size": 24,
+        "search_per_block": 3,
+        "total_problems": 100,
+        "num_blocks": 5,
+        "search_by_index": 15,
+        "apply_by_index": 85,
+        "search_fraction_by_index": 0.15,
+        "search_by_condition_field": 0,
+        "apply_by_condition_field": 0
+      },
+      "overall": {
+        "n": 100,
+        "success_rate_pct": 80.0,
+        "reward_mean": 7.245,
+        "reward_sd": 4.461719897578113,
+        "constraint_pct": 76.0,
+        "optimality_pct": 69.0,
+        "tokens_mean": 32130.13,
+        "time_mean": 350.7160098266602
+      },
+      "search_only": {
+        "n": 0
+      },
+      "apply_only": {
+        "n": 0
+      }
+    },
+    "NLP4LP_oneshot_Gemini": {
+      "path": "gemini/baseline_aq.json",
       "protocol": {
         "block_size": 24,
         "search_per_block": 3,
@@ -284,13 +314,43 @@
       },
       "overall": {
         "n": 242,
-        "success_rate_pct": 100.0,
-        "reward_mean": 9.540909090909091,
-        "reward_sd": 1.2305667823442694,
-        "constraint_pct": 99.17355371900827,
-        "optimality_pct": 80.57851239669421,
-        "tokens_mean": 19986.80578512397,
-        "time_mean": 0.0
+        "success_rate_pct": 98.34710743801652,
+        "reward_mean": 9.359504132231406,
+        "reward_sd": 2.2547535222371744,
+        "constraint_pct": 95.04132231404958,
+        "optimality_pct": 75.6198347107438,
+        "tokens_mean": 5740.789256198347,
+        "time_mean": 33.188241491633015
+      },
+      "search_only": {
+        "n": 0
+      },
+      "apply_only": {
+        "n": 0
+      }
+    },
+    "NLP4LP_Optimus_Gemini": {
+      "path": "gemini/optimus_baseline_gem_results.json",
+      "protocol": {
+        "block_size": 24,
+        "search_per_block": 3,
+        "total_problems": 242,
+        "num_blocks": 11,
+        "search_by_index": 32,
+        "apply_by_index": 210,
+        "search_fraction_by_index": 0.1322314049586777,
+        "search_by_condition_field": 0,
+        "apply_by_condition_field": 0
+      },
+      "overall": {
+        "n": 242,
+        "success_rate_pct": 92.56198347107438,
+        "reward_mean": 8.464876033057852,
+        "reward_sd": 3.51579214159607,
+        "constraint_pct": 91.32231404958678,
+        "optimality_pct": 69.83471074380165,
+        "tokens_mean": 37235.074380165286,
+        "time_mean": 223.92316295785352
       },
       "search_only": {
         "n": 0
@@ -299,14 +359,5 @@
         "n": 0
       }
     }
-  },
-  "reconciliation": [
-    "  Table2 GPT-5 optimality: paper=83.10% computed=78.10% (\u0394=5.00)",
-    "  Table2 GPT-5 tokens: paper=6657 computed=7158.14 (\u0394=501.14)",
-    "  Table1 GPT-5 sd: paper=1.41 computed=1.23 (\u0394=-0.18)",
-    "  Table1 GPT-5 constraint: paper=100.00% computed=99.17% (\u0394=0.83)",
-    "  Table1 GPT-5 optimality: paper=92.00% computed=80.58% (\u0394=11.42)",
-    "  Table1 GPT-5 tokens: paper=7517 computed=19986.81 (\u0394=12469.81)",
-    "  Table1 GPT-5 time: paper=100.26 computed=0.00 (\u0394=-100.26)"
-  ]
+  }
 }
